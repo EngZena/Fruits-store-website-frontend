@@ -1,0 +1,40 @@
+@import "../../../assets/scss/constants.scss";
+
+.login {
+  border: 1px dashed $blue_color;
+  text-align: center;
+  width: fit-content;
+  margin: auto;
+}
+.container {
+  margin-top: 30px;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid $red_error_color;
+}
+.block {
+  display: block;
+}
+.emailLabel {
+  margin-right: 40px;
+}
+.passwordLabel {
+  margin-right: 16px;
+}
+.fieldContainer {
+  margin: 15px;
+}
+button {
+  padding: 5px;
+}
+.primary {
+  background-color: $pink_color;
+  border-color: $pink_color;
+  color: $white_color;
+}
+.secondary {
+  background-color: $green_color;
+  border-color: $green_color;
+  color: $white_color;
+}

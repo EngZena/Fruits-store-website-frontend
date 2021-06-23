@@ -1,0 +1,20 @@
+@import "../../../assets/scss/constants.scss";
+.container {
+    display: flex;
+    justify-content: space-between;
+    background-color: $blue_color;
+}
+img{
+    width: 50px;
+}
+.imgContainer{
+    margin: auto 0;
+}
+.headerTextContainer{
+    color: $white_color;
+    margin-left: 5px;
+    font-size: 20px;
+}
+.headerText{
+    margin: 15px auto;
+}
