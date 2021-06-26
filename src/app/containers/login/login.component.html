@@ -14,16 +14,20 @@
                         <label for="password" class="passwordLabel">password</label>
                         <input type="password" name="password" id="password" class="form-control" #password="ngModel"
                             required password ngModel minlength="6">
-                        <span class="help-block block" *ngIf="!password.valid && password.touched">Please enter a valid
-                            password!</span>
+                            <span class="help-block block" *ngIf="!password.valid && password.touched && password.value.length < 6 ">Please enter a valid
+                                password!</span>
                     </div>
-                    <div class="btns">
-                        <button class=" fieldContainer secondary" type="button">
-                            SignUp
-                        </button>
-                        <button class=" fieldContainer primary" type="submit">
-                            Login
-                        </button>
+                    <div class="btnsContainer">
+                        <div>
+                            <button class=" fieldContainer secondary" type="button">
+                                SignUp
+                            </button>
+                        </div>
+                        <div>
+                            <button class=" fieldContainer primary" type="submit">
+                                Login
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
