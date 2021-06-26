@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -17,7 +18,7 @@ export class SignupComponent implements OnInit {
   signUpForm: FormGroup;
   forbiddenFirstName: string[] = ['Test', 'test'];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.signUpForm = new FormGroup({
@@ -84,5 +85,9 @@ export class SignupComponent implements OnInit {
   checkPasswords(control: FormControl){
       let confirmPassword =  control.value;
       return this.passwordvalue === confirmPassword ? null : {notMatch : true};
+  }
+  
+  onLogin(){
+    this.router.navigate(['/login']);
   }
 }
