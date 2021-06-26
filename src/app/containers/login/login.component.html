@@ -11,7 +11,7 @@
                             email!</span>
                     </div>
                     <div class="form-group fieldContainer">
-                        <label for="password" class="passwordLabel">password</label>
+                        <label for="password" class="passwordLabel">Password</label>
                         <input type="password" name="password" id="password" class="form-control" #password="ngModel"
                             required password ngModel minlength="6">
                             <span class="help-block block" *ngIf="!password.valid && password.touched && password.value.length < 6 ">Please enter a valid
@@ -19,7 +19,7 @@
                     </div>
                     <div class="btnsContainer">
                         <div>
-                            <button class=" fieldContainer secondary" type="button">
+                            <button class=" fieldContainer secondary" type="button" (click)="onSignUp()">
                                 SignUp
                             </button>
                         </div>
