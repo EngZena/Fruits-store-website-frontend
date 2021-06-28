@@ -1,0 +1,36 @@
+.noscroll {
+  overflow: hidden;
+}
+.basketContainer {
+  text-align: center;
+  margin: 5px;
+  position: relative;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-direction: reverse;
+  display: block;
+}
+.center {
+  text-align: center;
+}
+@keyframes example {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  25% {
+    left: 30%;
+    top: 0px;
+  }
+  50% {
+    left: -30%;
+    top: 0px;
+  }
+  75% {
+    left: 0px;
+    top: 0px;
+  }
+}
+.ordersContainer {
+  display: flex;
+}
