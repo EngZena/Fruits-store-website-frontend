@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <div class="noscroll" *ngIf="orderList.length < 1">
+                <div class="basketContainer">
+                    <img src="../../../assets/img/basket.png" width="25%">
+                </div>
+                <h3 class="center">There is no items in your basket </h3>
+
+            </div>
+            <div *ngIf="orderList.length > 1">
+                <div *ngFor="let item of orderList; let i = index">
+                    <div class="ordersContainer">
+                        <p> {{i+1}} name: {{item.name}} price: {{item.price}} </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
