@@ -14,7 +14,7 @@ export interface AuthResponseData {
   idToken: string;
   email: string;
   refreshToken: string;
-  experesIn: string;
+  expiresIn: string;
   localId: string;
   registered?: boolean;
 }
@@ -79,11 +79,11 @@ export class AuthEffects {
         )
         .pipe(
           tap((resData) => {
-            this.authService.setLogoutTimer(+resData.experesIn * 1000);
+            this.authService.setLogoutTimer(+resData.expiresIn * 1000);
           }),
           map((resData) => {
             return handleAuthentication(
-              +resData.experesIn,
+              +resData.expiresIn,
               resData.email,
               resData.localId,
               resData.idToken
@@ -112,12 +112,12 @@ export class AuthEffects {
           .pipe(
               tap(
                   resDate =>{
-                      this.authService.setLogoutTimer(+resDate.experesIn * 1000);
+                    this.authService.setLogoutTimer(+resDate.expiresIn * 1000);
                   }
               ),
               map(resData =>{
                   return handleAuthentication(
-                    +resData.experesIn,
+                    +resData.expiresIn,
                     resData.email,
                     resData.localId,
                     resData.idToken  
