@@ -1,5 +1,8 @@
-@import "../../../assets/scss/constants.scss";
+@import "../../../../assets/scss/constants.scss";
 
+.login {
+  font-size: 20px;
+}
 .container {
   margin-top: 30px;
 }
@@ -7,14 +10,23 @@
 input.ng-invalid.ng-touched {
   border: 1px solid $red_error_color;
 }
-textarea{
-  width: 100%;
+.block {
+  display: block;
+}
+.emailLabel {
+  margin-right: 40px;
+}
+.passwordLabel {
+  margin-right: 16px;
+}
+.fieldContainer {
+  margin: 15px;
 }
 .btnsContainer{
- display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
+  display: flex;
+   justify-content: space-between;
+   margin-bottom: 20px;
+ }
 button {
   padding: 5px;
   font-size: 20px;
@@ -30,4 +42,3 @@ button {
   border-color: $green_color;
   color: $white_color;
 }
-
