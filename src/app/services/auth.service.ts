@@ -2,6 +2,10 @@ import { Injectable } from "@angular/core";
 import { Store } from "@ngrx/store";
 import * as fromApp from '../store/app.reducer';
 import * as AuthActions from '../containers/auth/store/auth.actions';
+import { HttpClient } from "@angular/common/http";
+import { baseURL } from "./http-instanse";
+import { catchError, tap } from "rxjs/operators";
+import { throwError } from "rxjs";
 
 
 @Injectable({providedIn: 'root'})
@@ -9,7 +13,8 @@ export class AuthService{
     private tokenExpirationTimer: any;
 
     constructor(
-        private store: Store<fromApp.AppState>
+        private store: Store<fromApp.AppState>,
+        private http: HttpClient
     ){}
 
     setLogoutTimer(expirationDuration: number){
@@ -25,5 +30,35 @@ export class AuthService{
         }
     }
 
+  saveUserData(userName: string, firstName: string,lastName: string, 
+    email: string, gender: string,secretQuestion: string, secretAnswer: string ){
+    return this.http.post(`${baseURL}/usersData.json`, {
+            userName: userName,
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            gender: gender,
+            secretQuestion: secretQuestion,
+            secretAnswer: secretAnswer,
+        }).pipe(
+            catchError((responseError) => {
+              return throwError(responseError);
+            })
+          );
+    }
+
+
+    checkIfEmailExist(){
+        return this.http.get(`${baseURL}/usersData.json`).pipe(
+            tap(
+                (response) => {
+                  return response;
+                }
+            ),
+            catchError((responseError) => {
+              return throwError(responseError);
+            })
+          );
+    }
 }
 

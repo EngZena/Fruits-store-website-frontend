@@ -13,7 +13,7 @@ export class SummerFruitsService {
   constructor(private http: HttpClient) {}
 
   getSummerFruits() {
-    return this.http.get<FruitsModel[]>(`${baseURL}\summerFruits.json`).pipe(
+    return this.http.get<FruitsModel[]>(`${baseURL}/summerFruits.json`).pipe(
       map((responseData) => {
         const summerFruits: FruitsModel[] = [];
         responseData.map((item) => {

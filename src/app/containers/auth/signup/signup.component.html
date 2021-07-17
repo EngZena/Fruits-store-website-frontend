@@ -49,9 +49,12 @@
                         <label for="email">Email</label>
                         <input type="email" id="email" formControlName="email" class="form-control">
                         <span
-                            *ngIf="!signUpForm.get('newUserData.email').valid && signUpForm.get('newUserData.email').touched"
+                            *ngIf="!emailAlreadyExist && !signUpForm.get('newUserData.email').valid && signUpForm.get('newUserData.email').touched"
                             class="help-block">
                             Please enter a valid email
+                        </span>
+                        <span  *ngIf="emailAlreadyExist" class="help-block">
+                            Email already exist, Please try another one
                         </span>
                     </div>
 

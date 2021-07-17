@@ -9,8 +9,10 @@ import {
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { from, Observable } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import * as fromApp from '../../../store/app.reducer';
 import * as AuthActions from '../../auth/store/auth.actions';
+import { emailPattren } from '../pattrens';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -20,9 +22,11 @@ export class SignupComponent implements OnInit {
   gendersList: string[] = ['female', 'male'];
   signUpForm: FormGroup;
   forbiddenFirstName: string[] = ['Test', 'test'];
-
+  emailAlreadyExist: boolean = false;
   constructor(private router: Router,
-    private store: Store<fromApp.AppState> ) {}
+    private store: Store<fromApp.AppState>,
+    private authService: AuthService
+    ) {}
 
   ngOnInit(): void {
     this.signUpForm = new FormGroup(
@@ -44,8 +48,11 @@ export class SignupComponent implements OnInit {
           email: new FormControl(
             null,
             [Validators.required, 
-              Validators.pattern(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)],
-            this.forbiddenEmails.bind(this)
+              // Validators.email,
+              Validators.pattern(emailPattren),
+            this.forbiddenEmails.bind(this),
+              
+            ],
           ),
           password: new FormControl(null, [
             Validators.required,
@@ -78,6 +85,14 @@ export class SignupComponent implements OnInit {
     if(!this.signUpForm.valid) return;
     const email = this.signUpForm.get('newUserData.email').value;
     const password = this.signUpForm.get('newUserData.password').value;
+    const userName = this.signUpForm.get('newUserData.username').value;
+    const firstName = this.signUpForm.get('newUserData.firstName').value;
+    const lastName = this.signUpForm.get('newUserData.lastName').value;
+    const gender = this.signUpForm.get('gender').value;
+    const secretQuestion = this.signUpForm.get('secret').value;
+    const secretAnswer = this.signUpForm.get('questionAnswer').value;
+    this.authService.saveUserData(userName, firstName, lastName,email, gender, secretQuestion, secretAnswer).subscribe();
+   
     this.store.dispatch(
       new AuthActions.SignupStart({
         email: email,
@@ -92,17 +107,34 @@ export class SignupComponent implements OnInit {
     }
     return null;
   }
-  forbiddenEmails(control: FormControl): Promise<any> | Observable<any> {
-    const promise = new Promise<any>((resolve, reject) => {
-      setTimeout(() => {
-        if (control.value === 'test@test.com') {
-          resolve({ emailIsForbidden: true });
-        } else {
-          resolve(null);
-        }
-      }, 15000);
-    });
-    return promise;
+  forbiddenEmails(control: FormControl){
+    this.authService.checkIfEmailExist().subscribe(
+      (responseData) => {
+        const emailsList = [];
+        emailsList.push(Object.values(responseData))
+        emailsList.map((item) => 
+          item.map((itemData) => {
+            {
+              if(itemData.email === control.value)
+              {
+                this.emailAlreadyExist = true;
+              control.setErrors({ 'EmailAlreadyExist': true });
+            }
+              else 
+              {
+                const errorResult = emailPattren.test(String(control.value).toLowerCase());
+                this.emailAlreadyExist = false;
+                if(errorResult) {
+                  control.setErrors(null);
+                } else {
+                  control.setErrors({'EmailIsNotValid': true});
+              }
+              }
+          }
+          })
+         )
+      }
+    )
   }
 
   onLogin() {
