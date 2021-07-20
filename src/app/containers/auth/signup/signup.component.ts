@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { from, Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import * as fromApp from '../../../store/app.reducer';
 import * as AuthActions from '../../auth/store/auth.actions';
@@ -23,6 +23,10 @@ export class SignupComponent implements OnInit {
   signUpForm: FormGroup;
   forbiddenFirstName: string[] = ['Test', 'test'];
   emailAlreadyExist: boolean = false;
+  isLoading: boolean = false;
+  private storeSub: Subscription;
+  error: string = null;
+
   constructor(private router: Router,
     private store: Store<fromApp.AppState>,
     private authService: AuthService
@@ -34,7 +38,7 @@ export class SignupComponent implements OnInit {
         newUserData: new FormGroup({
           username: new FormControl(null, [
             Validators.required,
-            Validators.minLength(4),
+            Validators.minLength(3),
           ]),
           firstName: new FormControl(null, [
             Validators.required,
@@ -48,8 +52,7 @@ export class SignupComponent implements OnInit {
           email: new FormControl(
             null,
             [Validators.required, 
-              // Validators.email,
-              Validators.pattern(emailPattren),
+             Validators.pattern(emailPattren),
             this.forbiddenEmails.bind(this),
               
             ],
@@ -71,7 +74,13 @@ export class SignupComponent implements OnInit {
         validators: this.validateEqualityPasswordAndConfirmPassword.bind(this),
       }
     );
+    this.storeSub = this.store.select('auth').subscribe(
+      (authState) =>{
+      this.isLoading = authState.loading;
+      this.error = authState.authError;
+    })
   }
+
   validateEqualityPasswordAndConfirmPassword(formGroup: FormGroup) {
     const pass = formGroup.get('newUserData.password').value;
     const confirmpass = formGroup.get('newUserData.confirmPassword').value;
@@ -101,12 +110,14 @@ export class SignupComponent implements OnInit {
     );
     this.signUpForm.reset();
   }
+  
   forbiddenNames(control: FormControl): { [s: string]: boolean } {
     if (this.forbiddenFirstName.indexOf(control.value) !== -1) {
       return { nameIsForbidden: true };
     }
     return null;
   }
+
   forbiddenEmails(control: FormControl){
     this.authService.checkIfEmailExist().subscribe(
       (responseData) => {

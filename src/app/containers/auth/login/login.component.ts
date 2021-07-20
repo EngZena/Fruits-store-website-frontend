@@ -17,16 +17,14 @@ export class LoginComponent implements OnInit, OnDestroy{
   private storeSub: Subscription;
 
   constructor(private router: Router, private store: Store<fromApp.AppState>) {}
+  
   ngOnInit(): void {
     this.storeSub = this.store.select('auth').subscribe(authState =>{
       this.isLoading = authState.loading;
       this.error = authState.authError;
-      if(this.error) {
-        // will continue 
-        console.log(this.error)
-      }
     })
   }
+
   ngOnDestroy(): void {
     if(this.storeSub){
       this.storeSub.unsubscribe();

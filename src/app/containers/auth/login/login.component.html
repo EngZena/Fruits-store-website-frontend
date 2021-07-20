@@ -1,7 +1,9 @@
-<div class="container">
-    <div class="row">
         <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-            <div class="login">
+           
+            <div  *ngIf="!isLoading" class="login">
+                <div *ngIf="isLoading" >
+                    <app-loading></app-loading>
+                </div>
                 <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
                     <div class="form-group fieldContainer">
                         <label for="email" class="emailLabel">Email</label>
@@ -30,7 +32,11 @@
                         </div>
                     </div>
                 </form>
+                <div *ngIf="error">
+                    <app-alert-message
+                    alertType="ERROR"
+                    alertMessage="{{error}}"
+                    ></app-alert-message>
+                </div>
             </div>
         </div>
-    </div>
-</div>

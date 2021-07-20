@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit, Output } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { forkJoin } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { FruitsModel } from 'src/app/models/FruitsModel';
 import { SummerFruitsService } from 'src/app/services/SummerFruitsService';
 import { WinterFruitsService } from 'src/app/services/WinterFruitsService';
@@ -22,7 +24,8 @@ export class FruitsStoreComponent implements OnInit, OnDestroy {
   currentWinterPage: number = 1;
   summerFruitsPage: FruitsModel[] = [];
   winterFruitsPage: FruitsModel[] = [];
-  constructor(private http: HttpClient,
+ 
+  constructor(
     private summerFruitsService: SummerFruitsService,
     private winterFruitsService: WinterFruitsService,
     ) { }
@@ -39,27 +42,29 @@ export class FruitsStoreComponent implements OnInit, OnDestroy {
         this.errorMessage = errorMessageService;
     });
     this.isLoading = true;
-    this.summerFruitsService.getSummerFruits().subscribe(
-      fruits =>{
+
+    let value$ = this.loadData();
+    value$.subscribe(
+      () => {
         this.isLoading = false;
-        this.summerFruitsArray = fruits;
-        this.summerFruitsPage =  paginationFunctions.pagination(this.summerFruitsArray, 5, 1);
-      },
-      error => {
-        this.isLoading = false;
-        this.errorMessage = error.message;
       }
-    );
-    this.winterFruitsService.getWinterFruits().subscribe(
-      fruits =>{
-        this.isLoading = false;
-        this.winterFruitsArray = fruits;
-        this.winterFruitsPage = paginationFunctions.pagination(this.winterFruitsArray, 5, 1);
-      },
-      error => {
-        this.isLoading = false;
-        this.errorMessage = error.message;
-      }
+    )
+
+  }
+
+  loadData(){
+     return forkJoin(
+      this.summerFruitsService.getSummerFruits(),
+      this.winterFruitsService.getWinterFruits()
+    ).pipe(
+      map(
+        ([summerFruits, winterFruits]) => {
+          this.summerFruitsArray = summerFruits;
+          this.summerFruitsPage =  paginationFunctions.pagination(this.summerFruitsArray, 4, 1);
+          this.winterFruitsArray = winterFruits;
+          this.winterFruitsPage = paginationFunctions.pagination(this.winterFruitsArray, 4, 1);
+        }
+      )
     );
   }
 

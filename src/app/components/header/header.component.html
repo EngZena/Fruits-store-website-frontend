@@ -1,12 +1,29 @@
+<nav>
 <div class="headerContainer">
-    <div class="headerTextContainer" >
+    <div class="headerTextContainer">
         <p class="headerText">Fruits Store</p>
     </div>
     <div class="imgContainer">
-        <img src="../../../assets/img/logo-transparent.png" >
+        <img src="../../../assets/img/logo-transparent.png">
     </div>
-    <!-- <div class="headerTextContainer">
-        <a routerLink="/login">Login</a>
-        <a routerLink="/store">fruits</a>
-    </div> -->
+    <div class="headerTextContainer">
+        <ul class="headerTextContainer navContainer">
+            <li routerLinkActive="active">
+                <a class="nav" routerLink="/store">Store</a>
+            </li>
+            <li routerLinkActive="active"  *ngIf="isAuthenticated">
+                <a class="nav" routerLink="/checkout">Checkout</a>
+            </li>
+            <li routerLinkActive="active"  *ngIf="isAuthenticated">
+                <a class="nav" routerLink="/orders">Orders</a>
+            </li>
+            <li routerLinkActive="active" *ngIf="!isAuthenticated">
+                <a class="nav" routerLink="/login">Login</a>
+            </li>
+            <li routerLinkActive="active" *ngIf="isAuthenticated">
+                <a class="nav" routerLink="/logout" (click)="onLogout()" >Logout</a>
+            </li>
+        </ul>
+    </div>
 </div>
+</nav>

@@ -6,13 +6,13 @@
     </div>
     <div class="btnContainer">
         <div>
-            <button class="btnSecondary">
-                <img src="../../../assets/svg/remove.svg" alt="" class="remove" >
+            <button class="btn" [disabled]="!authorizedUser"  >
+                <img src="../../../assets/svg/remove.svg" alt="remove" class="remove" >
             </button>    
         </div>
         <div>
-            <button class="btnPrimary" >
-                <img src="../../../assets/svg/add.svg" alt="" class="add" >
+            <button class="btn" [disabled]="!authorizedUser" >
+                <img src="../../../assets/svg/add.svg" alt="add" class="add" >
             </button>
         </div>
     </div>

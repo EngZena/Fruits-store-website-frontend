@@ -16,12 +16,7 @@ img {
     display: flex;
     justify-content: space-around;
 }
-.btnPrimary{
-    color: $white_color;
-    border: 0;
-    background: transparent;
-}
-.btnSecondary{
+.btn{
     color: $white_color;
     border: 0;
     background: transparent;
