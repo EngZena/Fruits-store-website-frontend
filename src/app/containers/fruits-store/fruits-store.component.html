@@ -1,4 +1,4 @@
-<div *ngIf="isLoading"  class="loading" >
+<div *ngIf="isLoading">
     <app-loading></app-loading>
 </div>
 <div *ngIf="!isLoading">
@@ -18,7 +18,7 @@
         </div>
         <div>
           <button class="btnPrimary" (click)="NextPage(currentSummerPage, summerFruitsArray, 'summer')"
-            [disabled]="currentSummerPage === 2">
+            [disabled]="currentSummerPage === 3">
             <img src="../../../assets/svg/arrow-right-circle-fill.svg" class="icon">
           </button>
         </div>
@@ -45,7 +45,7 @@
         </div>
         <div>
           <button class="btnPrimary" (click)="NextPage(currentWinterPage, winterFruitsArray, 'winter')"
-            [disabled]="currentWinterPage === 2">
+            [disabled]="currentWinterPage === 3">
             <img src="../../../assets/svg/arrow-right-circle-fill.svg" class="icon">
           </button>
         </div>

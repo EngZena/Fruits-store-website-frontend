@@ -58,12 +58,14 @@ const handleError = (errorResponse: any) => {
 
 @Injectable()
 export class AuthEffects {
+ 
   constructor(
     private action$: Actions,
     private http: HttpClient,
     private router: Router,
     private authService: AuthService
   ) {}
+ 
   @Effect()
   authSignup = this.action$.pipe(
     ofType(AuthActions.SIGNUP_START),
@@ -129,12 +131,13 @@ export class AuthEffects {
           );
       })
   );
+
   @Effect({dispatch: false})
   authRedirect = this.action$.pipe(
       ofType(AuthActions.AUTHENTICATE_SUCCESS),
       tap((authSuccessAction: AuthActions.AuthenticateSuccess) =>{
           if (authSuccessAction.payload.redirect){
-              this.router.navigate(['/']);
+              this.router.navigate(['/store']);
           }
       })
   );
@@ -149,7 +152,7 @@ autoLogin = this.action$.pipe(
             _token: string;
             _tokenExpirationDate: string;
         } = JSON.parse(
-            localStorage.getItem('userDate')
+            localStorage.getItem('userData')
         );
         if(!userData){
             return {type: 'DUMMY'};

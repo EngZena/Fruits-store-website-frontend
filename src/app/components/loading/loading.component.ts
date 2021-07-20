@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-loading',
-  template: '<div class="lds-hourglass"></div>',
+  template: '<div class="loading" ><div class="lds-hourglass"></div></div>',
   styles: [
       `
       .lds-hourglass {
@@ -35,6 +35,10 @@ import { Component, OnInit } from '@angular/core';
         100% {
           transform: rotate(1800deg);
         }
+      }
+      .loading{
+        text-align: center;
+        margin-top: 10%;
       }
       `
   ]
