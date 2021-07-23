@@ -7,9 +7,6 @@
   margin-top: 30px;
 }
 
-input.ng-invalid.ng-touched {
-  border: 1px solid $red_error_color;
-}
 .block {
   display: block;
 }
@@ -27,18 +24,3 @@ input.ng-invalid.ng-touched {
    justify-content: space-between;
    margin-bottom: 20px;
  }
-button {
-  padding: 5px;
-  font-size: 20px;
-  cursor: pointer;
-}
-.primary {
-  background-color: $pink_color;
-  border-color: $pink_color;
-  color: $white_color;
-}
-.secondary {
-  background-color: $green_color;
-  border-color: $green_color;
-  color: $white_color;
-}

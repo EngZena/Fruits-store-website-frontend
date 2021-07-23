@@ -1,2 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
+@import "./assets/scss/constants.scss";
+
+button {
+  padding: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+.primary {
+  background-color: $pink_color;
+  border-color: $pink_color;
+  color: $white_color;
+}
+.secondary {
+  background-color: $green_color;
+  border-color: $green_color;
+  color: $white_color;
+}
+input.ng-invalid.ng-touched {
+  border: 1px solid $red_error_color;
+}

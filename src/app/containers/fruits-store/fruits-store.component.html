@@ -1,11 +1,17 @@
 <div *ngIf="isLoading">
-    <app-loading></app-loading>
+  <app-loading></app-loading>
 </div>
 <div *ngIf="!isLoading">
   <div *ngIf="summerFruitsPage.length > 0">
     <h3>Summer Fruits</h3>
     <div class="cardContainer">
-      <app-card *ngFor="let item of summerFruitsPage" name={{item.name}} price={{item.price}} imgName={{item.image}}>
+      <app-card 
+      *ngFor="let item of summerFruitsPage" 
+      name={{item.name}} price={{item.price}} 
+      imgName={{item.image}} category="summerFruits"
+      (addItem)="onAddItemToShoppingList($event)"
+      (removeItem)="onRemoveItemFromShoppingList($event)"
+      >
       </app-card>
     </div>
     <div>
@@ -23,16 +29,20 @@
           </button>
         </div>
       </div>
-  
-  
     </div>
   </div>
-  <!-- second -->
+
   <div *ngIf="winterFruitsPage.length > 0">
     <h3>Winter Fruits</h3>
   
     <div class="cardContainer">
-      <app-card *ngFor="let item of winterFruitsPage" name={{item.name}} price={{item.price}} imgName={{item.image}}>
+      <app-card 
+      *ngFor="let item of winterFruitsPage" 
+      name={{item.name}} price={{item.price}} 
+      imgName={{item.image}} category="winterFruits"
+      (addItem)="onAddItemToShoppingList($event)"
+      (removeItem)="onRemoveItemFromShoppingList($event)"
+      >
       </app-card>
     </div>
     <div>

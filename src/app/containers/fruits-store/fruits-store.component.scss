@@ -22,9 +22,6 @@ button {
   height: 30px;
   cursor: pointer;
 }
-button:disabled{
-  cursor: not-allowed;
-}
 .btnPrimary {
   filter: $pink_color_filter;
 }

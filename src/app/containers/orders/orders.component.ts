@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { OrdersService } from 'src/app/services/ordersService';
 
 @Component({
   selector: 'app-orders',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersComponent implements OnInit {
 
-  constructor() { }
+  ordersList = [];
+ private orderListErrorSub: Subscription;
+ orderListError: String = null;
+  
+  constructor(
+    private ordersService: OrdersService
+  ) { }
 
   ngOnInit(): void {
+      this.ordersService.getOrderts().subscribe(
+        (data) => {
+          if(data){
+            this.ordersList = Object.values(data)
+          }
+        }
+      )
   }
 
 }

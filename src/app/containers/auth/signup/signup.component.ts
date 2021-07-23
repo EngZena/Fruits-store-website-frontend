@@ -1,9 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
-  FormArray,
   FormControl,
   FormGroup,
-  NgForm,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,7 +10,7 @@ import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import * as fromApp from '../../../store/app.reducer';
 import * as AuthActions from '../../auth/store/auth.actions';
-import { emailPattren } from '../pattrens';
+import * as pattrens from '../pattrens';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -52,18 +50,18 @@ export class SignupComponent implements OnInit {
           email: new FormControl(
             null,
             [Validators.required, 
-             Validators.pattern(emailPattren),
+             Validators.pattern(pattrens.emailPattren),
             this.forbiddenEmails.bind(this),
               
             ],
           ),
           password: new FormControl(null, [
             Validators.required,
-            Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/)
+            Validators.pattern(pattrens.passwordPattren)
           ]),
           confirmPassword: new FormControl(null, [
             Validators.required,
-            Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/)
+            Validators.pattern(pattrens.passwordPattren)
           ]),
         }),
         gender: new FormControl('female'),
@@ -133,7 +131,7 @@ export class SignupComponent implements OnInit {
             }
               else 
               {
-                const errorResult = emailPattren.test(String(control.value).toLowerCase());
+                const errorResult = pattrens.emailPattren.test(String(control.value).toLowerCase());
                 this.emailAlreadyExist = false;
                 if(errorResult) {
                   control.setErrors(null);

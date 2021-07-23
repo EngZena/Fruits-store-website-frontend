@@ -1,17 +1,17 @@
 <div class="card">
-    <img src="../../../assets/products/{{imgName}}">
+    <img src="../../../assets/products/{{imgName}}" alt="fruit">
     <div class="description" >
         <p>{{name}}</p>
         <p>kilo: {{price}} JOD</p>
     </div>
     <div class="btnContainer">
         <div>
-            <button class="btn" [disabled]="!authorizedUser"  >
+            <button class="btn" [disabled]="!authorizedUser || !enableRemove"  (click)="onRemove()">
                 <img src="../../../assets/svg/remove.svg" alt="remove" class="remove" >
             </button>    
         </div>
         <div>
-            <button class="btn" [disabled]="!authorizedUser" >
+            <button class="btn" [disabled]="!authorizedUser" (click)="onAdd()" >
                 <img src="../../../assets/svg/add.svg" alt="add" class="add" >
             </button>
         </div>

@@ -2,121 +2,123 @@
             <div *ngIf="isLoading" >
                 <app-loading></app-loading>
             </div>
-            <form [formGroup]="signUpForm" *ngIf="!isLoading" (ngSubmit)="onSubmit()">
-                <div formGroupName="newUserData">
-                    <div class="form-group">
-                        <label for="username">User Name</label>
-                        <input type="text" id="username" formControlName="username" class="form-control">
-                        <span
-                            *ngIf="!signUpForm.get('newUserData.username').valid && signUpForm.get('newUserData.username').touched"
-                            class="help-block">
-                            <span *ngIf="signUpForm.get('newUserData.username').errors['required']">
-                                username is required!
+            <div class="signup">
+                <form [formGroup]="signUpForm" *ngIf="!isLoading" (ngSubmit)="onSubmit()">
+                    <div formGroupName="newUserData">
+                        <div class="form-group">
+                            <label for="username">User Name</label>
+                            <input type="text" id="username" formControlName="username" class="form-control">
+                            <span
+                                *ngIf="!signUpForm.get('newUserData.username').valid && signUpForm.get('newUserData.username').touched"
+                                class="help-block">
+                                <span *ngIf="signUpForm.get('newUserData.username').errors['required']">
+                                    username is required!
+                                </span>
                             </span>
-                        </span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="firstName">First Name</label>
-                        <input type="text" id="firstName" formControlName="firstName" class="form-control">
-                        <span
-                            *ngIf="!signUpForm.get('newUserData.firstName').valid && signUpForm.get('newUserData.firstName').touched"
-                            class="help-block">
-                            <span *ngIf="signUpForm.get('newUserData.firstName').errors['nameIsForbidden']">
-                                This name is invalid!
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" formControlName="firstName" class="form-control">
+                            <span
+                                *ngIf="!signUpForm.get('newUserData.firstName').valid && signUpForm.get('newUserData.firstName').touched"
+                                class="help-block">
+                                <span *ngIf="signUpForm.get('newUserData.firstName').errors['nameIsForbidden']">
+                                    This name is invalid!
+                                </span>
+                                <span *ngIf="signUpForm.get('newUserData.firstName').errors['required']">
+                                    First Name is required!
+                                </span>
                             </span>
-                            <span *ngIf="signUpForm.get('newUserData.firstName').errors['required']">
-                                First Name is required!
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" formControlName="lastName" class="form-control">
+                            <span
+                                *ngIf="!signUpForm.get('newUserData.lastName').valid && signUpForm.get('newUserData.lastName').touched"
+                                class="help-block">
+                                <span *ngIf="!signUpForm.get('newUserData.lastName').errors['nameIsForbidden']">
+                                    This name is invalid!
+                                </span>
+                                <span *ngIf="!signUpForm.get('newUserData.lastName').errors['required']">
+                                    Last Name is required!
+                                </span>
                             </span>
-                        </span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="lastName">Last Name</label>
-                        <input type="text" id="lastName" formControlName="lastName" class="form-control">
-                        <span
-                            *ngIf="!signUpForm.get('newUserData.lastName').valid && signUpForm.get('newUserData.lastName').touched"
-                            class="help-block">
-                            <span *ngIf="!signUpForm.get('newUserData.lastName').errors['nameIsForbidden']">
-                                This name is invalid!
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" formControlName="email" class="form-control">
+                            <span
+                                *ngIf="!emailAlreadyExist && !signUpForm.get('newUserData.email').valid && signUpForm.get('newUserData.email').touched"
+                                class="help-block">
+                                Please enter a valid email
                             </span>
-                            <span *ngIf="!signUpForm.get('newUserData.lastName').errors['required']">
-                                Last Name is required!
+                            <span  *ngIf="emailAlreadyExist" class="help-block">
+                                Email already exist, Please try another one
                             </span>
-                        </span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" formControlName="email" class="form-control">
-                        <span
-                            *ngIf="!emailAlreadyExist && !signUpForm.get('newUserData.email').valid && signUpForm.get('newUserData.email').touched"
-                            class="help-block">
-                            Please enter a valid email
-                        </span>
-                        <span  *ngIf="emailAlreadyExist" class="help-block">
-                            Email already exist, Please try another one
-                        </span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" formControlName="password" class="form-control">
-                        <span
-                            *ngIf="!signUpForm.get('newUserData.password').valid && signUpForm.get('newUserData.password').touched"
-                            class="help-block">
-                            Please enter a valid password
-                        </span>
-                    </div>
-                    <div class="form-group">
-                        <label for="confirmPassword">Confirm Password</label>
-                        <input type="password" id="confirmPassword" formControlName="confirmPassword" class="form-control">
-                        <span
-                            *ngIf="!signUpForm.get('newUserData.confirmPassword').valid && signUpForm.get('newUserData.confirmPassword').touched"
-                            class="help-block">
-                            ConfirmPassword does not match the password
-                        </span>
-                    </div>
-                </div>
-                <div>
-                    <label for="genderList">Gender</label>
-                    <div id="genderList" class="radio" *ngFor="let gender of gendersList">
-                        <label>
-                            <input type="radio" formControlName="gender" [value]="gender">
-                            {{gender}}
-                        </label>
-                    </div>
-
-                </div>
-
-                    <div class="form-group">
-                        <label for="secret">Secret Questions</label>
-                        <select id="secret" class="form-control" formControlName="secret" value="defaultQuestion">
-                            <option value="series">What the name of your favorite series?</option>
-                            <option value="school">What the name of your first school?</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="p_1em" formControlName="questionAnswer" id="questionAnswer" rows="3">
-                    </textarea>
-                    </div>
-              
-                <span *ngIf="!signUpForm.valid && signUpForm.touched" class="help-block">
-                    Please enter valid data!
-                </span>
-                <div class="btnsContainer" >
-                    <div>
-                        <button class="secondary" type="button" (click)="onLogin()" >Back to Login</button>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" formControlName="password" class="form-control">
+                            <span
+                                *ngIf="!signUpForm.get('newUserData.password').valid && signUpForm.get('newUserData.password').touched"
+                                class="help-block">
+                                Please enter a valid password
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" formControlName="confirmPassword" class="form-control">
+                            <span
+                                *ngIf="!signUpForm.get('newUserData.confirmPassword').valid && signUpForm.get('newUserData.confirmPassword').touched"
+                                class="help-block">
+                                ConfirmPassword does not match the password
+                            </span>
+                        </div>
                     </div>
                     <div>
-                        <button class="primary" type="submit">Submit</button>
+                        <label for="genderList">Gender</label>
+                        <div id="genderList" class="radio" *ngFor="let gender of gendersList">
+                            <label>
+                                <input type="radio" formControlName="gender" [value]="gender">
+                                {{gender}}
+                            </label>
+                        </div>
+    
                     </div>
+    
+                        <div class="form-group">
+                            <label for="secret">Secret Questions</label>
+                            <select id="secret" class="form-control" formControlName="secret" value="defaultQuestion">
+                                <option value="series">What the name of your favorite series?</option>
+                                <option value="school">What the name of your first school?</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="p_1em" formControlName="questionAnswer" id="questionAnswer" rows="3">
+                        </textarea>
+                        </div>
+                  
+                    <span *ngIf="!signUpForm.valid && signUpForm.touched" class="help-block">
+                        Please enter valid data!
+                    </span>
+                    <div class="btnsContainer" >
+                        <div>
+                            <button class="secondary" type="button" (click)="onLogin()" >Back to Login</button>
+                        </div>
+                        <div>
+                            <button class="primary" type="submit" [disabled]="!signUpForm.valid" >Submit</button>
+                        </div>
+                    </div>
+                </form>
+                <div *ngIf="error">
+                    <app-alert-message
+                    alertType="ERROR"
+                    alertMessage="{{error}}"
+                    ></app-alert-message>
                 </div>
-            </form>
-            <div *ngIf="error">
-                <app-alert-message
-                alertType="ERROR"
-                alertMessage="{{error}}"
-                ></app-alert-message>
             </div>
         </div>
