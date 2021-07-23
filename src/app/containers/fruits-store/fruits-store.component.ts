@@ -1,12 +1,14 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnDestroy, OnInit, Output } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
 import { forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { FruitsModel } from 'src/app/models/FruitsModel';
+import { FruitsModel, FruitType } from 'src/app/models/FruitsModel';
 import { SummerFruitsService } from 'src/app/services/SummerFruitsService';
 import { WinterFruitsService } from 'src/app/services/WinterFruitsService';
-import * as  paginationFunctions  from '../../shared'
+import * as  paginationFunctions  from '../../shared';
+import * as fromApp from '../../store/app.reducer';
+import * as fromCheckoutActions from '../checkout/store/checkout.actions';
 @Component({
   selector: 'app-fruits-store',
   templateUrl: './fruits-store.component.html',
@@ -28,10 +30,9 @@ export class FruitsStoreComponent implements OnInit, OnDestroy {
   constructor(
     private summerFruitsService: SummerFruitsService,
     private winterFruitsService: WinterFruitsService,
+    private store: Store<fromApp.AppState>
     ) { }
  
-
-
   ngOnInit(): void {
     this.errorSummerSub = this.summerFruitsService.requestError.subscribe(
       errorMessageService => {
@@ -68,7 +69,7 @@ export class FruitsStoreComponent implements OnInit, OnDestroy {
     );
   }
 
-  NextPage(currentPage, fullArray, season) {
+  NextPage(currentPage: number, fullArray: FruitsModel[], season: string) {
   const result =  paginationFunctions.NextPage(currentPage, fullArray)
     season === 'winter'
       ? (this.winterFruitsPage = result.arrayData)
@@ -78,7 +79,7 @@ export class FruitsStoreComponent implements OnInit, OnDestroy {
       : (this.currentSummerPage = result.pageNumber);
   }
  
-  PreviousPage(currentPage, fullArray, season) {
+  PreviousPage(currentPage: number, fullArray: FruitsModel[], season: string) {
     const result =  paginationFunctions.PreviousPage(currentPage, fullArray)
       season === 'winter'
         ? (this.winterFruitsPage = result.arrayData)
@@ -93,4 +94,23 @@ export class FruitsStoreComponent implements OnInit, OnDestroy {
     this.errorWinterSub.unsubscribe();
   }
 
+  onAddItemToShoppingList = (fruitData: {name: string,image: string, price: number}) =>{
+    this.store.dispatch(
+      new fromCheckoutActions.AddToCheckoutList({
+        name: fruitData.name,
+        price: fruitData.price,
+        image: fruitData.image,
+      })
+    );
+  }
+  
+  onRemoveItemFromShoppingList = (fruitData: {name: string,image: string, price: number}) =>{
+    this.store.dispatch(
+      new fromCheckoutActions.RemoveFromCheckoutList({
+        name: fruitData.name,
+        price: fruitData.price,
+        image: fruitData.image,
+      })
+    );
+  }
 }

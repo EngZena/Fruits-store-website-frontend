@@ -26,7 +26,6 @@ errorAlert: boolean = false;
       this.errorAlert = true;
       this.successAlert = false;
     }
-    console.log(this.alertMessage)
     setTimeout(()=>{
       this.hideMessage = false;
     }, 3000)

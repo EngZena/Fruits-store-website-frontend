@@ -7,6 +7,7 @@ import { FruitsStoreComponent } from './fruits-store/fruits-store.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { OrdersComponent } from './orders/orders.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { OrdersComponent } from './orders/orders.component';
     SignupComponent,
     CheckoutComponent,
     OrdersComponent,
+    CardComponent,
   ],
   imports: [ComponentsModule, CommonModule, FormsModule, ReactiveFormsModule],
   exports: [
@@ -23,6 +25,7 @@ import { OrdersComponent } from './orders/orders.component';
     SignupComponent,
     CheckoutComponent,
     OrdersComponent,
+    CardComponent,
   ],
 })
 export class ContainersModule {}

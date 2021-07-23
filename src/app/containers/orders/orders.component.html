@@ -1,1 +1,46 @@
-<p>orders works!</p>
+<div class="col-xs-12 col-sm-10 col-md-8  col-sm-offset-1 col-md-offset-2">
+
+    <div *ngIf="ordersList.length === 0" class="center" >
+        <h2>
+            There is no previous orders!!
+        </h2>
+    </div>
+
+    <div *ngIf="ordersList" >
+    <div *ngFor="let order of ordersList" class="order" >
+            <ul>
+                <li> 
+                  <p> <strong>Date</strong> </p>  <p>  &nbsp;&nbsp;{{order.date}}</p>
+                </li>
+                <li> 
+                    <p> <strong>PhoneNumber</strong> </p>  <p>  &nbsp;&nbsp;{{order.phoneNumber}}</p>
+                  </li>
+                  <li> 
+                    <p> <strong>StreetName</strong> </p>  <p>  &nbsp;&nbsp;{{order.streetName}}</p>
+                  </li>
+                  <li> 
+                    <p> <strong>Notes</strong> </p>  <p>  &nbsp;&nbsp;{{order.Notes}}</p>
+                  </li>
+                  <li> 
+                    <p> <strong>Total Price</strong> </p>  <p>  &nbsp;&nbsp;{{order.totalPrice}}</p>
+                  </li>
+                  
+            </ul>
+                <table>
+                <thead>
+                    <th> Item </th>
+                    <th> Price </th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of order.checkoutList" >
+                        <td> {{item.name}} </td>
+                        <td> {{item.price}} JOD </td>
+                    </tr> 
+                </tbody>
+            </table>
+            
+    </div>
+
+</div>
+
+</div>

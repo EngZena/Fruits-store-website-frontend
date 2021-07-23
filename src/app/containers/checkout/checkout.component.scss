@@ -1,3 +1,8 @@
+@import "../../../assets//scss/constants.scss";
+
+.content{
+  margin: 2rem;
+}
 .noscroll {
   overflow: hidden;
 }
@@ -31,6 +36,42 @@
     top: 0px;
   }
 }
-.ordersContainer {
+.checkoutItem{
   display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 20px;
+  margin: 2rem;
+}
+img {
+  width: 40%;
+}
+table{
+  th{
+    width: 20%;
+  }
+  tr{
+    img{
+      margin: 1rem;
+    }
+  }
+}
+.btn{
+  color: $white_color;
+  border: 0;
+  background: transparent;
+}
+.remove{
+  filter: $green_color_filter;
+  width: 50%;
+}
+ /* Specilly used for Firefox */
+ input[type=number] {
+  -moz-appearance: textfield;
+}
+ /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
