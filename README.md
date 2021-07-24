@@ -1,9 +1,11 @@
 # Fruits-Store
-This website for Fruits Store that created using Angular  that implement many functionalities 
-
-# FruitsStore
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.3.
+
+This website for Fruits Store that created using Angular programming language.
+In this website there are many functionalities implemented like data-binding, using Services, using Redux, add routing and more. 
+you can check it online by visit this link https://fruits-store-f0e94.web.app/store
+
 
 ## Development server
 
