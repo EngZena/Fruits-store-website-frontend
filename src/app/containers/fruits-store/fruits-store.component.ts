@@ -49,8 +49,7 @@ export class FruitsStoreComponent implements OnInit, OnDestroy {
       () => {
         this.isLoading = false;
       }
-    )
-
+    );
   }
 
   loadData(){
