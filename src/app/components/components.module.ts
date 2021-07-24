@@ -4,12 +4,14 @@ import { LoadingComponent } from "./loading/loading.component";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { AlertMessageComponent } from './alert-message/alert-message.component';
+import { DropdownDirective } from "./Dropdown/dropdown.directive";
 
 @NgModule({
     declarations: [
     HeaderComponent,
     LoadingComponent,
     AlertMessageComponent,
+    DropdownDirective,
   ],
     imports: [
       CommonModule,
@@ -19,6 +21,7 @@ import { AlertMessageComponent } from './alert-message/alert-message.component';
       HeaderComponent,
       LoadingComponent,
       AlertMessageComponent,
+      DropdownDirective,
     ]
 })
 export class ComponentsModule {

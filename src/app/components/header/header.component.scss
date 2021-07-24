@@ -44,3 +44,19 @@ li{
 .mr-0 {
     margin: 0px;
 }
+.menu{
+   display: none;
+   filter: $green_color_filter;
+}
+@media (max-width: 600px) {
+    .menu {
+      display: block;
+      right: 0; 
+    }
+    .headerTextContainer{
+        display: none;
+    }
+    .nav{
+        color: $blue_color;
+    }
+  }

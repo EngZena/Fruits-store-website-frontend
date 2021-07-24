@@ -19,3 +19,8 @@ textarea{
 .p_1em{
   padding: 1em;
 }
+input[type="radio"] + label {
+  color: $blue_color;
+  font-family:Arial, sans-serif;
+  font-size:14px;
+}
