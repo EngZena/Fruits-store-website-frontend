@@ -1,0 +1,116 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8  col-sm-offset-1 col-md-offset-2" >
+
+            <div class="content">
+                <div *ngIf="checkoutList && checkoutList.length === 0" >
+                    <div class="noscroll">
+                        <div class="basketContainer">
+                            <img src="../../../assets/img/basket.png" width="25%">
+                        </div>
+                        <h3 class="center">There is no items in your basket</h3>
+                    </div>
+                </div>
+                <div>
+                    <div *ngIf="checkoutList.length > 0">
+                        <div>
+                            <table>
+                                <thead>
+                                    <th>
+                                        <p>Number</p>
+                                    </th>
+                                    <th>
+                                        <p>Name</p>
+                                    </th>
+                                    <th>
+                                        <p>Price</p>
+                                    </th>
+                                    <th>
+                                        <p>Image</p>
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of checkoutList; let i = index">
+                                        <td>
+                                            <p>{{i+1}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{item.name}} </p>
+                                        </td>
+                                        <td>
+                                            <p>{{item.price}}</p>
+                                        </td>
+                                        <td>
+                                            <img src="../../../assets/products/{{item.image}}" alt="fruit">
+                                        </td>
+                                        <td>
+                                            <button class="btn"  (click)="onRemove(item)">
+                                                <img src="../../../assets/svg/remove.svg" alt="remove" class="remove" >
+                                            </button>  
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Total price</th>
+                                        <td>{{totalPrice}} JOD</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="content">
+                            <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" >
+                                <label for="phoneNumber">Phone Number</label>
+                                <input 
+                                type="text"
+                                id="phoneNumber"
+                                class="form-control"
+                                required
+                                formControlName="phoneNumber"
+                                >
+                                <label for="streetName">Street Name</label>
+                                <input 
+                                type="text"
+                                id="streetName"
+                                class="form-control"
+                                required
+                                formControlName="streetName"
+                                >
+                                <label for="notes">Notes</label>
+                                <textarea 
+                                id="notes" 
+                                cols="30" 
+                                rows="3"
+                                class="form-control"
+                                formControlName= "notes"
+                                ></textarea>
+                                <div class="center content">
+                                    <button
+                                    type="submit"
+                                    [disabled]="!checkoutForm.valid"
+                                    class="primary"
+                                    >
+                                        Submit Order
+                                    </button>
+
+                                </div>
+                            </form>
+                            <div *ngIf="error">
+                                <app-alert-message
+                                alertType="ERROR"
+                                alertMessage='An error occurred, please try again.'
+                            ></app-alert-message>
+                            </div>
+                                <div *ngIf="showAlert">
+                                    <app-alert-message
+                                    alertType="SUCCESS"
+                                    alertMessage='Your order submitted successfully, Thank you!'
+                                ></app-alert-message>
+                                </div>
+                        </div>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

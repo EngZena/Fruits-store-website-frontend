@@ -1,0 +1,19 @@
+@import "../../../assets/scss/constants.scss";
+.order {
+    margin: 1rem;
+    border-bottom: 0.25em dashed #76FF03;
+    padding-bottom: 0.5rem;
+    table{
+        width: 50%;
+    }
+    li {
+        display: flex;
+    }
+    ul{
+        box-sizing: border-box;
+        padding: 0;
+    }
+}
+.center{
+    text-align: center;
+}

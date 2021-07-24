@@ -1,0 +1,39 @@
+<nav>
+    <div class="headerContainer">
+        <div class="headerTextContainer">
+            <p class="mr-0">Fruits Store</p>
+        </div>
+        <div class="imgContainer">
+            <img src="../../../assets/img/logo-transparent.png">
+        </div>
+        <div class="headerTextContainer">
+            <ul class="headerTextContainer navContainer">
+                <div class="center">
+                    <li routerLinkActive="active">
+                        <a class="nav" routerLink="/store">Store</a>
+                    </li>
+                </div>
+                <div class="center">
+                    <li routerLinkActive="active" *ngIf="isAuthenticated">
+                        <a class="nav" routerLink="/checkout">Checkout</a>
+                    </li>
+                </div>
+                <div class="center">
+                    <li routerLinkActive="active" *ngIf="isAuthenticated">
+                        <a class="nav" routerLink="/orders">Orders</a>
+                    </li>
+                </div>
+                <div class="center">
+                    <li routerLinkActive="active" *ngIf="!isAuthenticated">
+                        <a class="nav" routerLink="/login">Login</a>
+                    </li>
+                </div>
+                <div class="center">
+                    <li routerLinkActive="active" *ngIf="isAuthenticated">
+                        <a class="nav" routerLink="/logout" (click)="onLogout()">Logout</a>
+                    </li>
+                </div>
+            </ul>
+        </div>
+    </div>
+</nav>

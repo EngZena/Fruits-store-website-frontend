@@ -1,0 +1,46 @@
+@import "../../../assets/scss/constants.scss";
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    background-color: $blue_color;
+    line-height: initial;
+}
+img{
+    width: 50px;
+}
+.imgContainer{
+    margin: auto 0;
+}
+.headerTextContainer{
+    color: $white_color;
+    margin-left: 5px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+.nav {
+    color: $white_color;
+    margin: 0 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.navContainer{
+    display: flex;
+}
+.text{
+    color: $white_color;
+}
+ul{
+    list-style: none;
+    margin: 0;
+}
+li{
+    padding: 0px 5px;
+    margin: 0px;
+}
+.center {
+    align-items: center;
+}
+.mr-0 {
+    margin: 0px;
+}
