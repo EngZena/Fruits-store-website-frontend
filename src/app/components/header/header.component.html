@@ -15,28 +15,28 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                     <div class="center">
-                        <li routerLinkActive="active">
-                            <a class="nav" routerLink="/store">Store</a>
+                        <li routerLinkActive="active" routerLink="/store">
+                            <a class="nav">Store</a>
                         </li>
                     </div>
                     <div class="center">
-                        <li routerLinkActive="active" *ngIf="isAuthenticated">
-                            <a class="nav" routerLink="/checkout">Checkout</a>
+                        <li routerLinkActive="active" *ngIf="isAuthenticated" routerLink="/checkout">
+                            <a class="nav">Checkout</a>
                         </li>
                     </div>
                     <div class="center">
-                        <li routerLinkActive="active" *ngIf="isAuthenticated">
-                            <a class="nav" routerLink="/orders">Orders</a>
+                        <li routerLinkActive="active" *ngIf="isAuthenticated" routerLink="/orders">
+                            <a class="nav">Orders</a>
                         </li>
                     </div>
                     <div class="center">
-                        <li routerLinkActive="active" *ngIf="!isAuthenticated">
-                            <a class="nav" routerLink="/login">Login</a>
+                        <li routerLinkActive="active" *ngIf="!isAuthenticated" routerLink="/login">
+                            <a class="nav">Login</a>
                         </li>
                     </div>
                     <div class="center">
-                        <li routerLinkActive="active" *ngIf="isAuthenticated">
-                            <a class="nav" routerLink="/logout" (click)="onLogout()">Logout</a>
+                        <li routerLinkActive="active" *ngIf="isAuthenticated" routerLink="/logout" (click)="onLogout()">
+                            <a class="nav">Logout</a>
                         </li>
                     </div>
                 </ul>
@@ -45,28 +45,28 @@
         <div class="headerTextContainer">
             <ul class="headerTextContainer navContainer">
                 <div class="center">
-                    <li routerLinkActive="active">
-                        <a class="nav" routerLink="/store">Store</a>
+                    <li routerLinkActive="active" routerLink="/store">
+                        <a class="nav">Store</a>
                     </li>
                 </div>
                 <div class="center">
-                    <li routerLinkActive="active" *ngIf="isAuthenticated">
-                        <a class="nav" routerLink="/checkout">Checkout</a>
+                    <li routerLinkActive="active" *ngIf="isAuthenticated" routerLink="/checkout">
+                        <a class="nav">Checkout</a>
                     </li>
                 </div>
                 <div class="center">
-                    <li routerLinkActive="active" *ngIf="isAuthenticated">
-                        <a class="nav" routerLink="/orders">Orders</a>
+                    <li routerLinkActive="active" *ngIf="isAuthenticated" routerLink="/orders">
+                        <a class="nav">Orders</a>
                     </li>
                 </div>
                 <div class="center">
-                    <li routerLinkActive="active" *ngIf="!isAuthenticated">
-                        <a class="nav" routerLink="/login">Login</a>
+                    <li routerLinkActive="active" *ngIf="!isAuthenticated" routerLink="/login">
+                        <a class="nav">Login</a>
                     </li>
                 </div>
                 <div class="center">
-                    <li routerLinkActive="active" *ngIf="isAuthenticated">
-                        <a class="nav" routerLink="/logout" (click)="onLogout()">Logout</a>
+                    <li routerLinkActive="active" *ngIf="isAuthenticated" routerLink="/logout" (click)="onLogout()">
+                        <a class="nav">Logout</a>
                     </li>
                 </div>
             </ul>
