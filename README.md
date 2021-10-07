@@ -1,11 +1,28 @@
 # Fruits-Store
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.3.
+This project was generated with Angular CLI version 12.0.3. 
 
-This website for Fruits Store that created using Angular programming language.
-In this website there are many functionalities implemented like data-binding, using Services, using Redux, add routing and more. 
-you can check it online by visit this link https://fruits-store-f0e94.web.app/store
+This website for Fruits Store that created using Angular programming language which is implement many functionalities listed below: 
 
+Data-binding  https://angular.io/guide/binding-syntax#binding-syntax
+Services  https://angular.io/guide/http
+Redux  https://ngrx.io/guide/store
+Routing https://angular.io/guide/routing-overview
+Route guards https://angular.io/guide/router-tutorial-toh#milestone-5-route-guards
+Template-forms https://angular.io/guide/forms-overview#setup-in-template-driven-forms
+Reactive-forms https://angular.io/guide/reactive-forms
+Directives https://angular.io/api/core/Directive
+
+also, the style made using bootstrap library https://getbootstrap.com/
+	there are customized styles added in the global style file like 
+		making all input elements have same style when they are invalid after they touched
+	the project is responsive and this by add some classes in main component
+
+the libraries used in this project are 
+@angular/router  https://www.npmjs.com/package/@angular/router
+@ngrx/store https://www.npmjs.com/package/@ngrx/store
+@ngrx/effects https://www.npmjs.com/package/@ngrx/effects
+bootstrap https://www.npmjs.com/package/@ng-bootstrap/ng-bootstrap
 
 ## Development server
 
