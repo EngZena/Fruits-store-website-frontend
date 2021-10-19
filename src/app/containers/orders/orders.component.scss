@@ -1,19 +1,15 @@
 @import "../../../assets/scss/constants.scss";
 .order {
     margin: 1rem;
-    border-bottom: 0.25em dashed #76FF03;
+    border-bottom: 0.25em dashed $green_color;
     padding-bottom: 0.5rem;
-    table{
-        width: 50%;
-    }
-    li {
-        display: flex;
-    }
-    ul{
-        box-sizing: border-box;
-        padding: 0;
+    ul {
+       list-style: none;
     }
 }
 .center{
     text-align: center;
+}
+.active {
+    background-color: $blue_color;
 }
