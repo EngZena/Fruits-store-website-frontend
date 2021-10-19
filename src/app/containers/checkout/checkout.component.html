@@ -14,20 +14,23 @@
                 <div>
                     <div *ngIf="checkoutList.length > 0">
                         <div>
-                            <table>
-                                <thead>
-                                    <th>
+                            <div class="table-responsive">
+                                <table class="table table-hover table-bordered">
+                                  <thead class="thead-light">
+                                    <tr>
+                                    <th scope="col">
                                         <p>Number</p>
                                     </th>
-                                    <th>
+                                    <th scope="col">
                                         <p>Name</p>
                                     </th>
-                                    <th>
+                                    <th scope="col">
                                         <p>Price</p>
                                     </th>
-                                    <th>
+                                    <th scope="col">
                                         <p>Image</p>
                                     </th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let item of checkoutList; let i = index">
@@ -50,12 +53,12 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>Total price</th>
+                                        <th scope="row">Total price</th>
                                         <td>{{totalPrice}} JOD</td>
                                     </tr>
                                 </tbody>
                             </table>
-
+                        </div>
                         </div>
                         <div class="content">
                             <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" >
@@ -107,7 +110,6 @@
                                 ></app-alert-message>
                                 </div>
                         </div>
-
                         </div>
                 </div>
             </div>

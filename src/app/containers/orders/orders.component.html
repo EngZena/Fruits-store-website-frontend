@@ -10,36 +10,47 @@
     </div>
     <div *ngIf="ordersList.length > 0">
       <div *ngFor="let order of ordersList" class="order">
-        <ul>
-          <li>
-            <p> <strong>Date</strong> </p>
-            <p> &nbsp;&nbsp;{{order.date}}</p>
+        <ul class="list-group">
+          <li class="list-group-item active" >
+            <span> <strong>Date</strong> </span>
+            <br/>
+            <span> &nbsp;&nbsp;{{order.date}}</span>
           </li>
           <li>
-            <p> <strong>PhoneNumber</strong> </p>
-            <p> &nbsp;&nbsp;{{order.phoneNumber}}</p>
+            <span> <strong>PhoneNumber</strong> </span>
+            <br/>
+            <span> &nbsp;&nbsp;{{order.phoneNumber}}</span>
           </li>
           <li>
-            <p> <strong>StreetName</strong> </p>
-            <p> &nbsp;&nbsp;{{order.streetName}}</p>
+            <span> <strong>StreetName</strong> </span>
+            <br/>
+            <span> &nbsp;&nbsp;{{order.streetName}}</span>
           </li>
           <li>
-            <p> <strong>Notes</strong> </p>
-            <p> &nbsp;&nbsp;{{order.Notes}}</p>
+            <span> <strong>Notes</strong> </span>
+            <br/>
+            <span> &nbsp;&nbsp;{{order.Notes}}</span>
           </li>
           <li>
-            <p> <strong>Total Price</strong> </p>
-            <p> &nbsp;&nbsp;{{order.totalPrice}}</p>
+            <span> <strong>Total Price</strong> </span>
+            <br/>
+            <span> &nbsp;&nbsp;{{order.totalPrice}}</span>
           </li>
-
         </ul>
-        <table>
-          <thead>
-            <th> Item </th>
-            <th> Price </th>
+        <br/>
+        <br/>
+        <div class="table-responsive">
+          <table class="table table-hover table-bordered">
+            <thead class="thead-light">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col"> Item </th>
+              <th scope="col"> Price </th>
+            </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of order.checkoutList">
+            <tr *ngFor="let item of order.checkoutList; let i = index">
+              <th scope="row">{{i+1}}</th>
               <td> {{item.name}} </td>
               <td> {{item.price}} JOD </td>
             </tr>
@@ -47,6 +58,7 @@
         </table>
 
       </div>
+    </div>
     </div>
   </div>
 
