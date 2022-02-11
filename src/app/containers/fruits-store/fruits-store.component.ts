@@ -38,7 +38,7 @@ export class FruitsStoreComponent implements OnInit, OnDestroy {
       errorMessageService => {
         this.errorMessage = errorMessageService;
     });
-    this.errorWinterSub = this.summerFruitsService.requestError.subscribe(
+    this.errorWinterSub = this.winterFruitsService.requestError.subscribe(
       errorMessageService => {
         this.errorMessage = errorMessageService;
     });
