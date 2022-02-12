@@ -25,6 +25,6 @@ import { AuthEffects } from './containers/auth/store/auth.effects';
     EffectsModule.forRoot([AuthEffects])
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-loading',
   template: '<div class="loading" ><div class="lds-hourglass"></div></div>',
   styles: [
-      `
+    `
       .lds-hourglass {
         display: inline-block;
         position: relative;
@@ -12,15 +12,15 @@ import { Component, OnInit } from '@angular/core';
         height: 250px;
       }
       .lds-hourglass:after {
-        content: " ";
+        content: ' ';
         display: block;
         border-radius: 50%;
         width: 0;
         height: 0;
         margin: 8px;
         box-sizing: border-box;
-        border: 100px solid #E5D41A;
-        border-color: #E5D41A transparent #E5D41A transparent;
+        border: 100px solid #e5d41a;
+        border-color: #e5d41a transparent #e5d41a transparent;
         animation: lds-hourglass 1.2s infinite;
       }
       @keyframes lds-hourglass {
@@ -36,18 +36,15 @@ import { Component, OnInit } from '@angular/core';
           transform: rotate(1800deg);
         }
       }
-      .loading{
+      .loading {
         text-align: center;
         margin-top: 10%;
       }
-      `
+    `
   ]
 })
 export class LoadingComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

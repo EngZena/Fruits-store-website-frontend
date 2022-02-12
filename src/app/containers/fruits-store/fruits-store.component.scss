@@ -1,4 +1,4 @@
-@import "../../../assets/scss/constants.scss";
+@import '../../../assets/scss/constants.scss';
 h3 {
   margin-left: 25px;
   color: $blue_color;
@@ -31,10 +31,10 @@ button:disabled {
 .btnSecondary {
   filter: $green_color_filter;
 }
-.icon{
-    width: 30px;
+.icon {
+  width: 30px;
 }
-.loading{
+.loading {
   text-align: center;
   margin-top: 10%;
 }

@@ -9,14 +9,9 @@ import * as fromAuthActions from './containers/auth/store/auth.actions';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  constructor(private store: Store<fromApp.AppState>) {}
 
-  constructor(
-    private store: Store<fromApp.AppState>
-  ){}
-  
   ngOnInit(): void {
-    this.store.dispatch(
-      new fromAuthActions.AutoLogin()
-    )
+    this.store.dispatch(new fromAuthActions.AutoLogin());
   }
 }

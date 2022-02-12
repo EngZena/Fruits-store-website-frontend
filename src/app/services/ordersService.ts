@@ -8,10 +8,9 @@ import * as fromCheckoutActions from '../containers/checkout/store/checkout.acti
 import * as fromAppStore from '../store/app.reducer';
 import { Store } from '@ngrx/store';
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class OrdersService implements OnInit {
-
   constructor(
     private http: HttpClient,
     private store: Store<fromAppStore.AppState>
@@ -51,7 +50,7 @@ export class OrdersService implements OnInit {
         notes: notes,
         checkoutList: checkoutList,
         totalPrice: totalPrice,
-        date: date.toDateString(),
+        date: date.toDateString()
       })
       .pipe(
         catchError((responseError) => {

@@ -16,7 +16,7 @@ export const NextPage = (currentPage: number, fullArray: FruitsModel[]) => {
     let res = pagination(fullArray, 4, page);
     return {
       pageNumber: page,
-      arrayData: res,
+      arrayData: res
     };
   }
 };
@@ -27,7 +27,7 @@ export const PreviousPage = (currentPage: number, fullArray: FruitsModel[]) => {
     let res = pagination(fullArray, 4, page);
     return {
       pageNumber: page,
-      arrayData: res,
+      arrayData: res
     };
   }
 };

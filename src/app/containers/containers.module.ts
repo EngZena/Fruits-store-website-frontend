@@ -16,7 +16,7 @@ import { CardComponent } from './card/card.component';
     SignupComponent,
     CheckoutComponent,
     OrdersComponent,
-    CardComponent,
+    CardComponent
   ],
   imports: [ComponentsModule, CommonModule, FormsModule, ReactiveFormsModule],
   exports: [
@@ -25,7 +25,7 @@ import { CardComponent } from './card/card.component';
     SignupComponent,
     CheckoutComponent,
     OrdersComponent,
-    CardComponent,
-  ],
+    CardComponent
+  ]
 })
 export class ContainersModule {}

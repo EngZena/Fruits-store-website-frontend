@@ -5,7 +5,7 @@ import { catchError, map } from 'rxjs/operators';
 import { FruitsModel } from '../models/FruitsModel';
 import { baseURL } from './http-instanse';
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class SummerFruitsService {
   requestError = new Subject<String>();

@@ -1,4 +1,7 @@
-<div *ngIf="hideMessage" class="alert alert-dismissible " 
-[ngClass]="{'alert-success': successAlert,'alert-danger': errorAlert}">
-    <strong>{{alertType}}!</strong> {{alertMessage}}
+<div
+  *ngIf="hideMessage"
+  class="alert alert-dismissible"
+  [ngClass]="{ 'alert-success': successAlert, 'alert-danger': errorAlert }"
+>
+  <strong>{{ alertType }}!</strong> {{ alertMessage }}
 </div>
