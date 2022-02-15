@@ -1,14 +1,14 @@
+import * as AuthActions from './auth.actions';
+import * as services from '../../../services/http-instanse';
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
+import { AuthService } from 'src/app/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Actions, Effect, ofType } from '@ngrx/effects';
-import { of } from 'rxjs';
-import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { User } from 'src/app/models/usesr.model';
-import { AuthService } from 'src/app/services/auth.service';
-import * as AuthActions from './auth.actions';
-import * as services from '../../../services/http-instanse';
 import { environment } from 'src/environments/environment';
+import { of } from 'rxjs';
 export interface AuthResponseData {
   kind: string;
   idToken: string;

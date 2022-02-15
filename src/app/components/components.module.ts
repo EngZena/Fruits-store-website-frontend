@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
+import { AlertMessageComponent } from './alert-message/alert-message.component';
+import { CommonModule } from '@angular/common';
+import { DropdownDirective } from './Dropdown/dropdown.directive';
 import { HeaderComponent } from './header/header.component';
 import { LoadingComponent } from './loading/loading.component';
-import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AlertMessageComponent } from './alert-message/alert-message.component';
-import { DropdownDirective } from './Dropdown/dropdown.directive';
 
 @NgModule({
   declarations: [
