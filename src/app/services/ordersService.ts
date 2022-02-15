@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import * as fromAppStore from '../store/app.reducer';
 import * as fromCheckoutActions from '../containers/checkout/store/checkout.actions';
 import { Injectable, OnInit } from '@angular/core';
@@ -16,13 +15,11 @@ export class OrdersService implements OnInit {
     private store: Store<fromAppStore.AppState>
   ) {}
 
-  // eslint-disable-next-line
   ngOnInit(): void {
     this.store.select('checkout').subscribe();
   }
 
   getOrderts() {
-    // eslint-disable-next-line no-undef
     const userId = JSON.parse(localStorage.getItem('userData')).id;
     return this.http.get(`${baseURL}/orders/${userId}.json`).pipe(
       map((responseData) => {
@@ -43,7 +40,6 @@ export class OrdersService implements OnInit {
     checkoutList: CheckoutListItem[],
     totalPrice: number
   ) {
-    // eslint-disable-next-line no-undef
     const userId = JSON.parse(localStorage.getItem('userData')).id;
     const date = new Date();
     return this.http

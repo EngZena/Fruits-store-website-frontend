@@ -7,8 +7,6 @@ if (environment.production) {
   enableProdMode();
 }
 
-/*eslint no-undef: "error"*/
-/*eslint-env node*/
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
   .catch((err) => console.error(err));
