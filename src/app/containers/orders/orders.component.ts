@@ -9,8 +9,8 @@ import { OrdersService } from 'src/app/services/ordersService';
 })
 export class OrdersComponent implements OnInit {
   ordersList = [];
-  isLoading: boolean = true;
-  emptyOrdersList: boolean = false;
+  isLoading = true;
+  emptyOrdersList = false;
   constructor(private ordersService: OrdersService) {}
 
   ngOnInit(): void {

@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
 import * as fromApp from '../../store/app.reducer';
 import * as fromcheckoutActions from './store/checkout.actions';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { phoneNumberPattren } from '../auth/pattrens';
-import { OrdersService } from 'src/app/services/ordersService';
 import { CheckoutListItem } from './store/checkout.reducers';
+import { OrdersService } from 'src/app/services/ordersService';
+import { Store } from '@ngrx/store';
+import { phoneNumberPattren } from '../auth/pattrens';
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -15,7 +15,7 @@ export class CheckoutComponent implements OnInit {
   checkoutList: CheckoutListItem[] = [];
   totalPrice: number;
   checkoutForm: FormGroup;
-  showAlert: boolean = false;
+  showAlert = false;
   error: string = null;
   constructor(
     private store: Store<fromApp.AppState>,

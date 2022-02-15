@@ -1,12 +1,13 @@
+import * as AuthActions from '../../auth/store/auth.actions';
+import * as fromApp from '../../../store/app.reducer';
+import * as pattrens from '../pattrens';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/services/auth.service';
-import * as fromApp from '../../../store/app.reducer';
-import * as AuthActions from '../../auth/store/auth.actions';
-import * as pattrens from '../pattrens';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -16,8 +17,8 @@ export class SignupComponent implements OnInit {
   gendersList: string[] = ['female', 'male'];
   signUpForm: FormGroup;
   forbiddenFirstName: string[] = ['Test', 'test'];
-  emailAlreadyExist: boolean = false;
-  isLoading: boolean = false;
+  emailAlreadyExist = false;
+  isLoading = false;
   private storeSub: Subscription;
   error: string = null;
 

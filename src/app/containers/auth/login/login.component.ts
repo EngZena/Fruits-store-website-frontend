@@ -12,7 +12,7 @@ import * as fromActions from '../store/auth.actions';
 })
 export class LoginComponent implements OnInit, OnDestroy {
   @ViewChild('loginForm', { static: false }) loginForm: NgForm;
-  isLoading: boolean = false;
+  isLoading = false;
   error: string = null;
   private storeSub: Subscription;
 

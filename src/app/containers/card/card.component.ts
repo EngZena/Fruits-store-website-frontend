@@ -8,7 +8,7 @@ import { FruitType } from 'src/app/models/FruitsModel';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  authorizedUser: boolean = false;
+  authorizedUser = false;
   constructor() {}
 
   @Input()
@@ -29,7 +29,7 @@ export class CardComponent implements OnInit {
   @Input()
   category: FruitType;
 
-  enableRemove: boolean = false;
+  enableRemove = false;
 
   ngOnInit(): void {
     const userData: {

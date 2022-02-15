@@ -10,7 +10,7 @@ import * as AuthActions from '../../containers/auth/store/auth.actions';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  isAuthenticated: boolean = false;
+  isAuthenticated = false;
   private userSubscription: Subscription;
 
   constructor(private store: Store<fromApp.AppState>) {}

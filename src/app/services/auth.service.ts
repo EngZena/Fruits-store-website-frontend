@@ -1,10 +1,10 @@
+import * as AuthActions from '../containers/auth/store/auth.actions';
+import * as fromApp from '../store/app.reducer';
+import { catchError, tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromApp from '../store/app.reducer';
-import * as AuthActions from '../containers/auth/store/auth.actions';
-import { HttpClient } from '@angular/common/http';
 import { baseURL } from './http-instanse';
-import { catchError, tap } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })

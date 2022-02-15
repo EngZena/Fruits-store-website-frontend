@@ -13,7 +13,7 @@ export const pagination = (
 export const NextPage = (currentPage: number, fullArray: FruitsModel[]) => {
   if (currentPage > 0 && currentPage < 4) {
     const page = currentPage + 1;
-    let res = pagination(fullArray, 4, page);
+    const res = pagination(fullArray, 4, page);
     return {
       pageNumber: page,
       arrayData: res
@@ -24,7 +24,7 @@ export const NextPage = (currentPage: number, fullArray: FruitsModel[]) => {
 export const PreviousPage = (currentPage: number, fullArray: FruitsModel[]) => {
   if (currentPage > 1 && currentPage < 4) {
     const page = currentPage - 1;
-    let res = pagination(fullArray, 4, page);
+    const res = pagination(fullArray, 4, page);
     return {
       pageNumber: page,
       arrayData: res

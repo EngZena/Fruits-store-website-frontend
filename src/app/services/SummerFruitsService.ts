@@ -1,14 +1,14 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 import { Subject, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { FruitsModel } from '../models/FruitsModel';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { baseURL } from './http-instanse';
 @Injectable({
   providedIn: 'root'
 })
 export class SummerFruitsService {
-  requestError = new Subject<String>();
+  requestError = new Subject<string>();
 
   constructor(private http: HttpClient) {}
 

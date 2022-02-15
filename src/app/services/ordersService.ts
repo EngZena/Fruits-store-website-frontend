@@ -1,12 +1,12 @@
-import { HttpClient } from '@angular/common/http';
-import { EventEmitter, Injectable, OnInit } from '@angular/core';
-import { Subject, throwError } from 'rxjs';
-import { catchError, exhaustMap, map, take, tap } from 'rxjs/operators';
-import { CheckoutListItem } from '../containers/checkout/store/checkout.reducers';
-import { baseURL } from './http-instanse';
-import * as fromCheckoutActions from '../containers/checkout/store/checkout.actions';
+/* eslint-disable no-unused-vars */
 import * as fromAppStore from '../store/app.reducer';
+import * as fromCheckoutActions from '../containers/checkout/store/checkout.actions';
+import { Injectable, OnInit } from '@angular/core';
+import { catchError, map } from 'rxjs/operators';
+import { CheckoutListItem } from '../containers/checkout/store/checkout.reducers';
+import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngrx/store';
+import { baseURL } from './http-instanse';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,11 +16,13 @@ export class OrdersService implements OnInit {
     private store: Store<fromAppStore.AppState>
   ) {}
 
+  // eslint-disable-next-line
   ngOnInit(): void {
     this.store.select('checkout').subscribe();
   }
 
   getOrderts() {
+    // eslint-disable-next-line no-undef
     const userId = JSON.parse(localStorage.getItem('userData')).id;
     return this.http.get(`${baseURL}/orders/${userId}.json`).pipe(
       map((responseData) => {
@@ -41,6 +43,7 @@ export class OrdersService implements OnInit {
     checkoutList: CheckoutListItem[],
     totalPrice: number
   ) {
+    // eslint-disable-next-line no-undef
     const userId = JSON.parse(localStorage.getItem('userData')).id;
     const date = new Date();
     return this.http

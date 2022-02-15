@@ -17,12 +17,12 @@ import * as fromCheckoutActions from '../checkout/store/checkout.actions';
 export class FruitsStoreComponent implements OnInit, OnDestroy {
   summerFruitsArray: FruitsModel[] = [];
   winterFruitsArray: FruitsModel[] = [];
-  isLoading: boolean = false;
-  errorMessage: String = null;
+  isLoading = false;
+  errorMessage: string = null;
   private errorSummerSub: Subscription;
   private errorWinterSub: Subscription;
-  currentSummerPage: number = 1;
-  currentWinterPage: number = 1;
+  currentSummerPage = 1;
+  currentWinterPage = 1;
   summerFruitsPage: FruitsModel[] = [];
   winterFruitsPage: FruitsModel[] = [];
 
@@ -45,7 +45,7 @@ export class FruitsStoreComponent implements OnInit, OnDestroy {
     );
     this.isLoading = true;
 
-    let value$ = this.loadData();
+    const value$ = this.loadData();
     value$.subscribe(() => {
       this.isLoading = false;
     });

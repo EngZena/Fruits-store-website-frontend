@@ -7,12 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AlertMessageComponent implements OnInit {
   @Input()
-  alertType: string = '';
+  alertType = '';
   @Input()
-  alertMessage: string = '';
-  hideMessage: boolean = true;
-  successAlert: boolean = false;
-  errorAlert: boolean = false;
+  alertMessage = '';
+  hideMessage = true;
+  successAlert = false;
+  errorAlert = false;
   constructor() {}
 
   ngOnInit(): void {
