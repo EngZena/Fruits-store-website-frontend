@@ -4,6 +4,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { CommonModule } from '@angular/common';
 import { ComponentsModule } from '../components/components.module';
 import { FruitsStoreComponent } from './fruits-store/fruits-store.component';
+import { LeafletMapComponent } from './map/leaflet-map/leaflet-map.component';
 import { LoginComponent } from './auth/login/login.component';
 import { NgModule } from '@angular/core';
 import { OrdersComponent } from './orders/orders.component';
@@ -16,7 +17,8 @@ import { SignupComponent } from './auth/signup/signup.component';
     SignupComponent,
     CheckoutComponent,
     OrdersComponent,
-    CardComponent
+    CardComponent,
+    LeafletMapComponent
   ],
   imports: [ComponentsModule, CommonModule, FormsModule, ReactiveFormsModule],
   exports: [
