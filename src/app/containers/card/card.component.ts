@@ -5,10 +5,10 @@ import { FruitType } from 'src/app/models/FruitsModel';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss'],
+  styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  authorizedUser: boolean = false;
+  authorizedUser = false;
   constructor() {}
 
   @Input()
@@ -22,14 +22,14 @@ export class CardComponent implements OnInit {
 
   @Output()
   addItem = new EventEmitter<CheckoutListItem>();
-  
+
   @Output()
   removeItem = new EventEmitter<CheckoutListItem>();
 
   @Input()
   category: FruitType;
 
-  enableRemove: boolean = false;
+  enableRemove = false;
 
   ngOnInit(): void {
     const userData: {
@@ -43,16 +43,20 @@ export class CardComponent implements OnInit {
     }
   }
 
-  onAdd(){
+  onAdd() {
     this.addItem.emit({
-      name: this.name, image: this.imgName, price: +this.price
+      name: this.name,
+      image: this.imgName,
+      price: +this.price
     });
     this.enableRemove = true;
   }
 
-  onRemove(){
+  onRemove() {
     this.removeItem.emit({
-      name: this.name, image: this.imgName, price: +this.price
+      name: this.name,
+      image: this.imgName,
+      price: +this.price
     });
     this.enableRemove = false;
   }

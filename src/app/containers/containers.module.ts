@@ -1,13 +1,13 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ComponentsModule } from '../components/components.module';
+import { CardComponent } from './card/card.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { CommonModule } from '@angular/common';
+import { ComponentsModule } from '../components/components.module';
 import { FruitsStoreComponent } from './fruits-store/fruits-store.component';
 import { LoginComponent } from './auth/login/login.component';
-import { SignupComponent } from './auth/signup/signup.component';
+import { NgModule } from '@angular/core';
 import { OrdersComponent } from './orders/orders.component';
-import { CardComponent } from './card/card.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { CardComponent } from './card/card.component';
     SignupComponent,
     CheckoutComponent,
     OrdersComponent,
-    CardComponent,
+    CardComponent
   ],
   imports: [ComponentsModule, CommonModule, FormsModule, ReactiveFormsModule],
   exports: [
@@ -25,7 +25,7 @@ import { CardComponent } from './card/card.component';
     SignupComponent,
     CheckoutComponent,
     OrdersComponent,
-    CardComponent,
-  ],
+    CardComponent
+  ]
 })
 export class ContainersModule {}

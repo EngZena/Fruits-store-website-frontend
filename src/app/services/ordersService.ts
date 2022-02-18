@@ -1,17 +1,15 @@
-import { HttpClient } from '@angular/common/http';
-import { EventEmitter, Injectable, OnInit } from '@angular/core';
-import { Subject, throwError } from 'rxjs';
-import { catchError, exhaustMap, map, take, tap } from 'rxjs/operators';
-import { CheckoutListItem } from '../containers/checkout/store/checkout.reducers';
-import { baseURL } from './http-instanse';
-import * as fromCheckoutActions from '../containers/checkout/store/checkout.actions';
 import * as fromAppStore from '../store/app.reducer';
+import * as fromCheckoutActions from '../containers/checkout/store/checkout.actions';
+import { Injectable, OnInit } from '@angular/core';
+import { catchError, map } from 'rxjs/operators';
+import { CheckoutListItem } from '../containers/checkout/store/checkout.reducers';
+import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngrx/store';
+import { baseURL } from './http-instanse';
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class OrdersService implements OnInit {
-
   constructor(
     private http: HttpClient,
     private store: Store<fromAppStore.AppState>
@@ -51,7 +49,7 @@ export class OrdersService implements OnInit {
         notes: notes,
         checkoutList: checkoutList,
         totalPrice: totalPrice,
-        date: date.toDateString(),
+        date: date.toDateString()
       })
       .pipe(
         catchError((responseError) => {

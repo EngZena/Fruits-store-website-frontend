@@ -1,32 +1,33 @@
+import * as fromActions from '../store/auth.actions';
+import * as fromApp from '../../../store/app.reducer';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import * as fromApp from '../../../store/app.reducer';
-import * as fromActions from '../store/auth.actions';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit, OnDestroy{
+export class LoginComponent implements OnInit, OnDestroy {
   @ViewChild('loginForm', { static: false }) loginForm: NgForm;
-  isLoading: boolean = false;
+  isLoading = false;
   error: string = null;
   private storeSub: Subscription;
 
   constructor(private router: Router, private store: Store<fromApp.AppState>) {}
-  
+
   ngOnInit(): void {
-    this.storeSub = this.store.select('auth').subscribe(authState =>{
+    this.storeSub = this.store.select('auth').subscribe((authState) => {
       this.isLoading = authState.loading;
       this.error = authState.authError;
-    })
+    });
   }
 
   ngOnDestroy(): void {
-    if(this.storeSub){
+    if (this.storeSub) {
       this.storeSub.unsubscribe();
     }
   }
@@ -40,7 +41,7 @@ export class LoginComponent implements OnInit, OnDestroy{
     this.store.dispatch(
       new fromActions.LoginStart({
         email: email,
-        password: password,
+        password: password
       })
     );
     form.reset();
