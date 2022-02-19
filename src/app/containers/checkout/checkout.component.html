@@ -84,9 +84,6 @@
                   required
                   formControlName="streetName"
                 />
-                <div class="map-container">
-                  <app-leaflet-map></app-leaflet-map>
-                </div>
                 <label for="notes">Notes</label>
                 <textarea
                   id="notes"
@@ -95,11 +92,15 @@
                   class="form-control"
                   formControlName="notes"
                 ></textarea>
+                <label>Location</label>
                 <div class="center content">
+                  <div class="map-container">
+                    <app-leaflet-map></app-leaflet-map>
+                  </div>
                   <button
                     type="submit"
                     [disabled]="!checkoutForm.valid"
-                    class="primary"
+                    class="primary submit-btn"
                   >
                     Submit Order
                   </button>
