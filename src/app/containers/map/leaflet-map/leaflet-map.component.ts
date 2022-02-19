@@ -33,4 +33,23 @@ export class LeafletMapComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.initMap();
   }
+
+  getLocation(): void {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(onSuccess.bind(this), onError);
+    } else {
+      console.log('browser does not support geolocation');
+    }
+    function onSuccess(position) {
+      const { latitude, longitude, accuracy } = position.coords;
+      console.log('success');
+      console.log(`Your location: (${latitude},${longitude})`);
+      console.log('accuracy', accuracy);
+      this.map.setView(new L.LatLng(latitude, longitude), 16);
+    }
+    function onError() {
+      console.log('error');
+      console.log('Failed to get your location!');
+    }
+  }
 }
