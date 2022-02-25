@@ -8,58 +8,58 @@
         There is no previous orders!!
       </h2>
     </div>
-    <div *ngIf="ordersList.length > 0">
-      <div *ngFor="let order of ordersList" class="order">
-        <ul class="list-group">
-          <li class="list-group-item active" >
-            <span> <strong>Date</strong> </span>
-            <br/>
-            <span> &nbsp;&nbsp;{{order.date}}</span>
-          </li>
-          <li>
-            <span> <strong>PhoneNumber</strong> </span>
-            <br/>
-            <span> &nbsp;&nbsp;{{order.phoneNumber}}</span>
-          </li>
-          <li>
-            <span> <strong>StreetName</strong> </span>
-            <br/>
-            <span> &nbsp;&nbsp;{{order.streetName}}</span>
-          </li>
-          <li>
-            <span> <strong>Notes</strong> </span>
-            <br/>
-            <span> &nbsp;&nbsp;{{order.notes}}</span>
-          </li>
-          <li>
-            <span> <strong>Total Price</strong> </span>
-            <br/>
-            <span> &nbsp;&nbsp;{{order.totalPrice}}</span>
-          </li>
-        </ul>
-        <br/>
-        <br/>
-        <div class="table-responsive">
-          <table class="table table-hover table-bordered">
-            <thead class="thead-light">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col"> Item </th>
-              <th scope="col"> Price </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of order.checkoutList; let i = index">
-              <th scope="row">{{i+1}}</th>
-              <td> {{item.name}} </td>
-              <td> {{item.price}} JOD </td>
-            </tr>
-          </tbody>
-        </table>
-
+      <div *ngIf="!emptyOrdersList">
+        <div *ngFor="let order of ordersList" class="order">
+          <ul class="list-group">
+            <li class="list-group-item active" >
+              <span> <strong>Date</strong> </span>
+              <br/>
+              <span> &nbsp;&nbsp;{{order.date}}</span>
+            </li>
+            <li>
+              <span> <strong>PhoneNumber</strong> </span>
+              <br/>
+              <span> &nbsp;&nbsp;{{order.phoneNumber}}</span>
+            </li>
+            <li>
+              <span> <strong>StreetName</strong> </span>
+              <br/>
+              <span> &nbsp;&nbsp;{{order.streetName}}</span>
+            </li>
+            <li>
+              <span> <strong>Notes</strong> </span>
+              <br/>
+              <span> &nbsp;&nbsp;{{order.notes}}</span>
+            </li>
+            <li>
+              <span> <strong>Total Price</strong> </span>
+              <br/>
+              <span> &nbsp;&nbsp;{{order.totalPrice}}</span>
+            </li>
+          </ul>
+          <br/>
+          <br/>
+          <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+              <thead class="thead-light">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col"> Item </th>
+                <th scope="col"> Price </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of order.checkoutList; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td> {{item.name}} </td>
+                <td> {{item.price}} JOD </td>
+              </tr>
+            </tbody>
+          </table>
+  
+        </div>
       </div>
-    </div>
-    </div>
+      </div>
   </div>
 
 </div>
