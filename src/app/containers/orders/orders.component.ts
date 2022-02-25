@@ -20,14 +20,22 @@ emptyOrdersList: boolean = false;
     this.isLoading = true;
     this.ordersService.getOrderts().subscribe(
         (data) => {
-          if(data){
+          if(data) {
             this.ordersList = Object.values(data);
-           return this.emptyOrdersList = false;
+            if(this.ordersList.length> 0) {
+              this.dataReceived();
+              return this.emptyOrdersList = false;
+          } else {
+              this.dataReceived();
+              return  this.emptyOrdersList = true;
+          }
           }
         }
       );
-      this.emptyOrdersList = true;
-      this.isLoading = false;
+  }
+
+  dataReceived() {
+    this.isLoading = false;
   }
 
 }
