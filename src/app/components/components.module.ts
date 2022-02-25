@@ -5,6 +5,7 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { AlertMessageComponent } from './alert-message/alert-message.component';
 import { DropdownDirective } from "./Dropdown/dropdown.directive";
+import { NoInternetComponent } from "./no-internet/no-internet.component";
 
 @NgModule({
     declarations: [
@@ -12,6 +13,7 @@ import { DropdownDirective } from "./Dropdown/dropdown.directive";
     LoadingComponent,
     AlertMessageComponent,
     DropdownDirective,
+    NoInternetComponent
   ],
     imports: [
       CommonModule,
@@ -22,6 +24,7 @@ import { DropdownDirective } from "./Dropdown/dropdown.directive";
       LoadingComponent,
       AlertMessageComponent,
       DropdownDirective,
+      NoInternetComponent
     ]
 })
 export class ComponentsModule {
