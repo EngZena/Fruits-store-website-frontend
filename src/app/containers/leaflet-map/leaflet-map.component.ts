@@ -1,5 +1,7 @@
 import * as L from 'leaflet';
 import { AfterViewInit, Component } from '@angular/core';
+import { CitiesService } from 'src/app/services/cities.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-leaflet-map',
@@ -9,8 +11,9 @@ import { AfterViewInit, Component } from '@angular/core';
 export class LeafletMapComponent implements AfterViewInit {
   private map;
   private currentZoomLevel = 16;
+  searchText: FormControl = new FormControl();
 
-  constructor() {}
+  constructor(private citiesService: CitiesService) {}
 
   private initMap(): void {
     this.map = L.map('map', {
@@ -65,5 +68,17 @@ export class LeafletMapComponent implements AfterViewInit {
     let currentZoom = this.map.getZoom();
     this.currentZoomLevel = --currentZoom;
     this.map.setZoom(this.currentZoomLevel);
+  }
+
+  search() {
+    const searchValue = this.searchText.value;
+    this.citiesService.getCityLocation(`${searchValue}`).subscribe((data) => {
+      const result: any = data;
+      if(result.length > 0) {
+        this.map.setView(new L.LatLng(result[0].lat, result[0].lon), 16);
+      } else {
+        this.searchText.setValue('No data found');
+      }
+    });
   }
 }

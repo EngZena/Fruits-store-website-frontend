@@ -17,3 +17,14 @@
   height: 30px;
   width: 30px;
 }
+.search_input {
+  z-index: 450;
+  position: absolute;
+  margin: 2%;
+}
+.search_icon {
+  position: relative;
+  margin-top: -55px;
+  left: 170px;
+  cursor: pointer;
+}
