@@ -1,4 +1,19 @@
+@import "../../../assets/scss/constants.scss";
+
 #map {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
+}
+.map_button_container {
+  background: $white_color;
+  margin: 20px 10px 10px 0;
+  padding: 3px;
+  z-index: 450;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+.location_icon {
+  height: 30px;
+  width: 30px;
 }
