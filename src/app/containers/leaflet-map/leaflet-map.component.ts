@@ -28,6 +28,7 @@ export class LeafletMapComponent implements AfterViewInit {
     );
 
     tiles.addTo(this.map);
+    this.map.zoomControl.remove();
   }
 
   ngAfterViewInit(): void {
