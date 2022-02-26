@@ -8,13 +8,14 @@ import { AfterViewInit, Component } from '@angular/core';
 })
 export class LeafletMapComponent implements AfterViewInit {
   private map;
+  private currentZoomLevel = 16;
 
   constructor() {}
 
   private initMap(): void {
     this.map = L.map('map', {
       center: [31.9515694, 35.9239625],
-      zoom: 16
+      zoom: this.currentZoomLevel
     });
 
     const tiles = L.tileLayer(
@@ -52,5 +53,17 @@ export class LeafletMapComponent implements AfterViewInit {
       console.log('error');
       console.log('Failed to get your location!');
     }
+  }
+
+  zoomIn(): void {
+    let currentZoom = this.map.getZoom();
+    this.currentZoomLevel = ++currentZoom;
+    this.map.setZoom(this.currentZoomLevel);
+  }
+
+  zoomOut(): void {
+    let currentZoom = this.map.getZoom();
+    this.currentZoomLevel = --currentZoom;
+    this.map.setZoom(this.currentZoomLevel);
   }
 }
