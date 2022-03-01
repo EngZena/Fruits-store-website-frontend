@@ -7,29 +7,25 @@ import * as AuthActions from '../../containers/auth/store/auth.actions';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit,OnDestroy {
-
+export class HeaderComponent implements OnInit, OnDestroy {
   isAuthenticated: boolean = false;
   private userSubscription: Subscription;
 
-  constructor(
-    private store: Store<fromApp.AppState>
-  ) { }
+  constructor(private store: Store<fromApp.AppState>) {}
 
   ngOnInit(): void {
-    this.userSubscription = this.store.select('auth').
-    pipe(map(authState => authState.user)).
-    subscribe(user => {
-      this.isAuthenticated = !!user;
-    })
+    this.userSubscription = this.store
+      .select('auth')
+      .pipe(map(authState => authState.user))
+      .subscribe(user => {
+        this.isAuthenticated = !!user;
+      });
   }
 
-  onLogout(){
-    this.store.dispatch(
-      new AuthActions.Logout()
-    );
+  onLogout() {
+    this.store.dispatch(new AuthActions.Logout());
   }
   ngOnDestroy(): void {
     this.userSubscription.unsubscribe();

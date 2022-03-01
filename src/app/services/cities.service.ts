@@ -5,21 +5,21 @@ import { Injectable } from '@angular/core';
 import { MapServicesUrl } from './http-instanse';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CitiesService {
   requestError = new Subject<string>();
 
   constructor(private http: HttpClient) {}
-  
+
   getCityLocation(cityName: string) {
     return this.http
       .get(`${MapServicesUrl}/search?q=${cityName}&format=json`)
       .pipe(
-        tap((response) => {
+        tap(response => {
           return response;
         }),
-        catchError((responseError) => {
+        catchError(responseError => {
           return throwError(responseError);
         })
       );

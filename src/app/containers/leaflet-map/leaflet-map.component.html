@@ -1,18 +1,23 @@
-    <div id="map">
-        <div class="map_button_container" (click)="getLocation()">
-           <img src="../../../../assets/svg/location.svg" alt="location" >
-        </div>
-        <div class="map_button_container" (click)="zoomIn()" style="margin-top: 50px;">
-            <img src="../../../../assets/svg/zoom-in.svg" alt="location" >
-         </div>
-         <div class="map_button_container" (click)="zoomOut()" style="margin-top: 80px;">
-            <img src="../../../../assets/svg/zoom-out.svg" alt="location" >
-         </div>
-         <div class="search_input">
-            <input type="text" class="form-control" [formControl]="searchText">
-            <img src="../../../../assets/svg/search.svg" alt="search" class="search_icon"
-            (click)="search()">
-         </div>
-        <div class="leaflet-top leaflet-right">
-        </div>
-    </div>
+<div id="map">
+  <div class="map_button_container" (click)="getLocation()">
+    <img src="../../../../assets/svg/location.svg" alt="location" />
+  </div>
+  <div class="map_button_container" (click)="zoomIn()" style="margin-top: 50px">
+    <img src="../../../../assets/svg/zoom-in.svg" alt="location" />
+  </div>
+  <div
+    class="map_button_container"
+    (click)="zoomOut()"
+    style="margin-top: 80px">
+    <img src="../../../../assets/svg/zoom-out.svg" alt="location" />
+  </div>
+  <div class="search_input">
+    <input type="text" class="form-control" [formControl]="searchText" />
+    <img
+      src="../../../../assets/svg/search.svg"
+      alt="search"
+      class="search_icon"
+      (click)="search()" />
+  </div>
+  <div class="leaflet-top leaflet-right"></div>
+</div>

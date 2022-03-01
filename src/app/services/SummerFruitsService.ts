@@ -14,14 +14,14 @@ export class SummerFruitsService {
 
   getSummerFruits() {
     return this.http.get<FruitsModel[]>(`${baseURL}/summerFruits.json`).pipe(
-      map((responseData) => {
+      map(responseData => {
         const summerFruits: FruitsModel[] = [];
-        responseData.map((item) => {
+        responseData.map(item => {
           summerFruits.push(item);
         });
         return summerFruits;
       }),
-      catchError((responseError) => {
+      catchError(responseError => {
         return throwError(responseError);
       })
     );

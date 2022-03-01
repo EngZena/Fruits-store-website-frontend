@@ -6,7 +6,7 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-leaflet-map',
   templateUrl: './leaflet-map.component.html',
-  styleUrls: ['./leaflet-map.component.scss']
+  styleUrls: ['./leaflet-map.component.scss'],
 })
 export class LeafletMapComponent implements AfterViewInit {
   private map;
@@ -18,7 +18,7 @@ export class LeafletMapComponent implements AfterViewInit {
   private initMap(): void {
     this.map = L.map('map', {
       center: [31.9515694, 35.9239625],
-      zoom: this.currentZoomLevel
+      zoom: this.currentZoomLevel,
     });
 
     const tiles = L.tileLayer(
@@ -27,7 +27,7 @@ export class LeafletMapComponent implements AfterViewInit {
         maxZoom: 18,
         minZoom: 3,
         attribution:
-          '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }
     );
 
@@ -38,7 +38,7 @@ export class LeafletMapComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.initMap();
   }
-  
+
   getLocation(): void {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(onSuccess.bind(this), onError);
@@ -72,9 +72,9 @@ export class LeafletMapComponent implements AfterViewInit {
 
   search() {
     const searchValue = this.searchText.value;
-    this.citiesService.getCityLocation(`${searchValue}`).subscribe((data) => {
+    this.citiesService.getCityLocation(`${searchValue}`).subscribe(data => {
       const result: any = data;
-      if(result.length > 0) {
+      if (result.length > 0) {
         this.map.setView(new L.LatLng(result[0].lat, result[0].lon), 16);
       } else {
         this.searchText.setValue('No data found');

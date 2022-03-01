@@ -11,12 +11,12 @@ import { Store } from '@ngrx/store';
   providedIn: 'root',
 })
 export class OrdersService implements OnInit {
-
   constructor(
     private http: HttpClient,
     private store: Store<fromAppStore.AppState>
   ) {}
 
+  // eslint-disable-next-line @angular-eslint/contextual-lifecycle
   ngOnInit(): void {
     this.store.select('checkout').subscribe();
   }
@@ -24,11 +24,11 @@ export class OrdersService implements OnInit {
   getOrderts() {
     const userId = JSON.parse(localStorage.getItem('userData')).id;
     return this.http.get(`${baseURL}/orders/${userId}.json`).pipe(
-      map((responseData) => {
+      map(responseData => {
         const ordersList = Object.values(responseData);
         return ordersList;
       }),
-      catchError((responseError) => {
+      catchError(responseError => {
         const ordersList = [];
         return ordersList;
       })
@@ -54,7 +54,7 @@ export class OrdersService implements OnInit {
         date: date.toDateString(),
       })
       .pipe(
-        catchError((responseError) => {
+        catchError(responseError => {
           this.store.dispatch(
             new fromCheckoutActions.CheckoutFail(responseError)
           );

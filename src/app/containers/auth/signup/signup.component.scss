@@ -1,4 +1,4 @@
-@import "../../../../assets//scss/constants.scss";
+@import '../../../../assets//scss/constants.scss';
 
 .signup {
   margin-top: 30px;
@@ -8,19 +8,19 @@
 input.ng-invalid.ng-touched {
   border: 1px solid $red_error_color;
 }
-textarea{
+textarea {
   width: 100%;
 }
-.btnsContainer{
- display: flex;
+.btnsContainer {
+  display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }
-.p_1em{
+.p_1em {
   padding: 1em;
 }
-input[type="radio"] + label {
+input[type='radio'] + label {
   color: $blue_color;
-  font-family:Arial, sans-serif;
-  font-size:14px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
 }
