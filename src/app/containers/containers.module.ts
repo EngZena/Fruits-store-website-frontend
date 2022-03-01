@@ -8,6 +8,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { OrdersComponent } from './orders/orders.component';
 import { CardComponent } from './card/card.component';
+import { LeafletMapComponent } from './leaflet-map/leaflet-map.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CardComponent } from './card/card.component';
     CheckoutComponent,
     OrdersComponent,
     CardComponent,
+    LeafletMapComponent,
   ],
   imports: [ComponentsModule, CommonModule, FormsModule, ReactiveFormsModule],
   exports: [
@@ -26,6 +28,7 @@ import { CardComponent } from './card/card.component';
     CheckoutComponent,
     OrdersComponent,
     CardComponent,
+    LeafletMapComponent,
   ],
 })
 export class ContainersModule {}

@@ -6,3 +6,6 @@ export const signupBaseUrl =
 
 export const LoginBaseUrl = 
 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=';
+
+export const MapServicesUrl = 
+'https://nominatim.openstreetmap.org';
