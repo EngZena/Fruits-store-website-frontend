@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.min.css";
-@import "./assets/scss/constants.scss";
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import './assets/scss/constants.scss';
 
 button {
   padding: 5px;
@@ -30,7 +30,7 @@ body {
 /* Works on Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: $green_color ;
+  scrollbar-color: $green_color;
   // scrollbar-color: $green_color $blue_color;
 }
 
@@ -48,4 +48,3 @@ body {
   border-radius: 20px;
   // border: 3px solid $blue_color;
 }
-

@@ -1,4 +1,4 @@
-@import "../../../../assets/scss/constants.scss";
+@import '../../../../assets/scss/constants.scss';
 
 .login {
   font-size: 20px;
@@ -19,8 +19,8 @@
 .fieldContainer {
   margin: 15px;
 }
-.btnsContainer{
+.btnsContainer {
   display: flex;
-   justify-content: space-between;
-   margin-bottom: 20px;
- }
+  justify-content: space-between;
+  margin-bottom: 20px;
+}

@@ -9,26 +9,26 @@ export interface CheckoutListItem {
 
 export interface checkoutState {
   checkoutList: CheckoutListItem[];
-  total: number,
-  error: string
+  total: number;
+  error: string;
 }
 
 const initialState: checkoutState = {
   checkoutList: [],
   total: 0,
-  error: null
+  error: null,
 };
 
-const calculateTotal = (state) => {
-  let totalPrice = 0
-  state.checkoutList.map((item)=>{
+const calculateTotal = state => {
+  let totalPrice = 0;
+  state.checkoutList.map(item => {
     totalPrice = totalPrice + item.price;
   });
   return {
     ...state,
-    total: totalPrice
+    total: totalPrice,
   };
-}
+};
 
 const addToCheckoutList = (action, state) => {
   const fruitData = {
@@ -36,17 +36,17 @@ const addToCheckoutList = (action, state) => {
     price: action.payload.price,
     image: action.payload.image,
   };
- const totalPrice = calculateTotal(state);
+  const totalPrice = calculateTotal(state);
   state = {
     ...state,
     checkoutList: [...state.checkoutList, fruitData],
   };
- return calculateTotal(state);
+  return calculateTotal(state);
 };
 
 const RemoveFromCheckoutList = (action, state) => {
   const filteredData = state.checkoutList.filter(
-    (item) => item.name !== action.payload.name
+    item => item.name !== action.payload.name
   );
   state = {
     ...state,
@@ -64,15 +64,15 @@ export function checkoutReducer(
       return addToCheckoutList(action, state);
     case checkoutActionTypes.REMOVE_FROM_SHOPPING_LIST:
       return RemoveFromCheckoutList(action, state);
-      case checkoutActionTypes.EMPTY_SHOPPING_LIST: 
+    case checkoutActionTypes.EMPTY_SHOPPING_LIST:
       return {
         ...state,
-        checkoutList: []
+        checkoutList: [],
       };
-      case checkoutActionTypes.CHECKOUT_FAIL:
+    case checkoutActionTypes.CHECKOUT_FAIL:
       return {
         ...state,
-        error: action
+        error: action,
       };
     default:
       return state;

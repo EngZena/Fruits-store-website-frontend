@@ -33,7 +33,6 @@ export class CheckoutFail implements Action {
   constructor(payload: string) {}
 }
 
-
 export type CheckoutActions =
   | AddToCheckoutList
   | RemoveFromCheckoutList

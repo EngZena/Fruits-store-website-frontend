@@ -1,75 +1,101 @@
 <nav>
-    <div class="headerContainer">
-        <div class="navContainer">
-            <div class="imgContainer">
-                <img src="../../../assets/img/logo-transparent.png">
-            </div>
-            <div class="headerTextContainer">
-                <p class="mr-0">Fruits Store</p>
-            </div>
-        </div>
-        <div>
-            <div class="dropdown" appDropdown>
-                <a class="nav" class="dropdown-toggle" role="button">
-                    <img src="../../../assets/svg/menu.svg" alt="menu" class="menu">
-                </a>
-                <ul class="dropdown-menu dropdown-menu-right">
-                    <div class="center">
-                        <li routerLinkActive="active" routerLink="/store">
-                            <a class="nav">Store</a>
-                        </li>
-                    </div>
-                    <div class="center">
-                        <li routerLinkActive="active" *ngIf="isAuthenticated" routerLink="/checkout">
-                            <a class="nav">Checkout</a>
-                        </li>
-                    </div>
-                    <div class="center">
-                        <li routerLinkActive="active" *ngIf="isAuthenticated" routerLink="/orders">
-                            <a class="nav">Orders</a>
-                        </li>
-                    </div>
-                    <div class="center">
-                        <li routerLinkActive="active" *ngIf="!isAuthenticated" routerLink="/login">
-                            <a class="nav">Login</a>
-                        </li>
-                    </div>
-                    <div class="center">
-                        <li routerLinkActive="active" *ngIf="isAuthenticated" routerLink="/logout" (click)="onLogout()">
-                            <a class="nav">Logout</a>
-                        </li>
-                    </div>
-                </ul>
-            </div>
-        </div>
-        <div class="headerTextContainer">
-            <ul class="headerTextContainer navContainer">
-                <div class="center">
-                    <li routerLinkActive="active" routerLink="/store">
-                        <a class="nav">Store</a>
-                    </li>
-                </div>
-                <div class="center">
-                    <li routerLinkActive="active" *ngIf="isAuthenticated" routerLink="/checkout">
-                        <a class="nav">Checkout</a>
-                    </li>
-                </div>
-                <div class="center">
-                    <li routerLinkActive="active" *ngIf="isAuthenticated" routerLink="/orders">
-                        <a class="nav">Orders</a>
-                    </li>
-                </div>
-                <div class="center">
-                    <li routerLinkActive="active" *ngIf="!isAuthenticated" routerLink="/login">
-                        <a class="nav">Login</a>
-                    </li>
-                </div>
-                <div class="center">
-                    <li routerLinkActive="active" *ngIf="isAuthenticated" routerLink="/logout" (click)="onLogout()">
-                        <a class="nav">Logout</a>
-                    </li>
-                </div>
-            </ul>
-        </div>
+  <div class="headerContainer">
+    <div class="navContainer">
+      <div class="imgContainer">
+        <img src="../../../assets/img/logo-transparent.png" />
+      </div>
+      <div class="headerTextContainer">
+        <p class="mr-0">Fruits Store</p>
+      </div>
     </div>
+    <div>
+      <div class="dropdown" appDropdown>
+        <a class="nav" class="dropdown-toggle" role="button">
+          <img src="../../../assets/svg/menu.svg" alt="menu" class="menu" />
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right">
+          <div class="center">
+            <li routerLinkActive="active" routerLink="/store">
+              <a class="nav">Store</a>
+            </li>
+          </div>
+          <div class="center">
+            <li
+              routerLinkActive="active"
+              *ngIf="isAuthenticated"
+              routerLink="/checkout">
+              <a class="nav">Checkout</a>
+            </li>
+          </div>
+          <div class="center">
+            <li
+              routerLinkActive="active"
+              *ngIf="isAuthenticated"
+              routerLink="/orders">
+              <a class="nav">Orders</a>
+            </li>
+          </div>
+          <div class="center">
+            <li
+              routerLinkActive="active"
+              *ngIf="!isAuthenticated"
+              routerLink="/login">
+              <a class="nav">Login</a>
+            </li>
+          </div>
+          <div class="center">
+            <li
+              routerLinkActive="active"
+              *ngIf="isAuthenticated"
+              routerLink="/logout"
+              (click)="onLogout()">
+              <a class="nav">Logout</a>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+    <div class="headerTextContainer">
+      <ul class="headerTextContainer navContainer">
+        <div class="center">
+          <li routerLinkActive="active" routerLink="/store">
+            <a class="nav">Store</a>
+          </li>
+        </div>
+        <div class="center">
+          <li
+            routerLinkActive="active"
+            *ngIf="isAuthenticated"
+            routerLink="/checkout">
+            <a class="nav">Checkout</a>
+          </li>
+        </div>
+        <div class="center">
+          <li
+            routerLinkActive="active"
+            *ngIf="isAuthenticated"
+            routerLink="/orders">
+            <a class="nav">Orders</a>
+          </li>
+        </div>
+        <div class="center">
+          <li
+            routerLinkActive="active"
+            *ngIf="!isAuthenticated"
+            routerLink="/login">
+            <a class="nav">Login</a>
+          </li>
+        </div>
+        <div class="center">
+          <li
+            routerLinkActive="active"
+            *ngIf="isAuthenticated"
+            routerLink="/logout"
+            (click)="onLogout()">
+            <a class="nav">Logout</a>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
 </nav>
