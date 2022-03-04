@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { OrdersService } from 'src/app/services/ordersService';
+import { OrdersService } from 'src/app/core/services/ordersService';
 
 @Component({
   selector: 'app-orders',

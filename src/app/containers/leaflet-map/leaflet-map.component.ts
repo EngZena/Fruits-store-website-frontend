@@ -1,6 +1,6 @@
 import * as L from 'leaflet';
 import { AfterViewInit, Component } from '@angular/core';
-import { CitiesService } from 'src/app/services/cities.service';
+import { CitiesService } from 'src/app/core/services/cities.service';
 import { FormControl } from '@angular/forms';
 
 @Component({

@@ -4,7 +4,7 @@ import * as fromApp from '../../store/app.reducer';
 import * as fromcheckoutActions from './store/checkout.actions';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { phoneNumberPattren } from '../auth/pattrens';
-import { OrdersService } from 'src/app/services/ordersService';
+import { OrdersService } from 'src/app/core/services/ordersService';
 import { CheckoutListItem } from './store/checkout.reducers';
 @Component({
   selector: 'app-checkout',

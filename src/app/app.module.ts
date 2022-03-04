@@ -13,6 +13,7 @@ import * as fromApp from './store/app.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './containers/auth/store/auth.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { CoreModule } from './core/core.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -22,6 +23,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     ComponentsModule,
     ContainersModule,
     HttpClientModule,
+    CoreModule,
     StoreModule.forRoot(fromApp.appReducer),
     EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({}),
