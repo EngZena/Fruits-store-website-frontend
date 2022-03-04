@@ -1,4 +1,4 @@
-import { FruitsModel } from '../models/FruitsModel';
+import { FruitsModel } from '../core/models/FruitsModel';
 
 export const pagination = (
   array: FruitsModel[],
