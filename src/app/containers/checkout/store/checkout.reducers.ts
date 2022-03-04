@@ -1,5 +1,5 @@
-import * as checkoutActions from './checkout.actions';
 import * as checkoutActionTypes from './checkout.action-types';
+import * as checkoutActions from './checkout.actions';
 
 export interface CheckoutListItem {
   name: string;

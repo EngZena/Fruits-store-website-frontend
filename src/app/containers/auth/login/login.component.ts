@@ -1,10 +1,13 @@
+import * as fromActions from '../store/auth.actions';
+import * as fromApp from '../../../store/app.reducer';
+
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import * as fromApp from '../../../store/app.reducer';
-import * as fromActions from '../store/auth.actions';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
