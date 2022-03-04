@@ -1,5 +1,6 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorHandler, Injectable, NgZone } from '@angular/core';
+
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {

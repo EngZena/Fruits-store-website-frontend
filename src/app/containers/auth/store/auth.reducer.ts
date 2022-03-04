@@ -1,5 +1,6 @@
-import { User } from 'src/app/core/models/usesr.model';
 import * as AuthActions from './auth.actions';
+
+import { User } from 'src/app/core/models/usesr.model';
 
 export interface State {
   user: User;
