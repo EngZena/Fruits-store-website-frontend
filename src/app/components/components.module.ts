@@ -5,6 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { LoadingComponent } from './loading/loading.component';
 import { NgModule } from '@angular/core';
 import { NoInternetComponent } from './no-internet/no-internet.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -14,6 +15,7 @@ import { RouterModule } from '@angular/router';
     AlertMessageComponent,
     DropdownDirective,
     NoInternetComponent,
+    PageNotFoundComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -22,6 +24,7 @@ import { RouterModule } from '@angular/router';
     AlertMessageComponent,
     DropdownDirective,
     NoInternetComponent,
+    PageNotFoundComponent,
   ],
 })
 export class ComponentsModule {}
