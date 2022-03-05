@@ -9,12 +9,13 @@ import { OrdersComponent } from './containers/orders/orders.component';
 import { SignupComponent } from './containers/auth/signup/signup.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/store', pathMatch: 'full' },
+  { path: '', redirectTo: 'store', pathMatch: 'full' },
   { path: 'store', component: FruitsStoreComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'checkout', canActivate: [AuthGuard], component: CheckoutComponent },
   { path: 'orders', canActivate: [AuthGuard], component: OrdersComponent },
+  { path: '**', component: FruitsStoreComponent },
 ];
 
 @NgModule({
