@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 import { OrdersService } from 'src/app/core/services/orders.service';
 
@@ -27,6 +27,22 @@ export class OrdersComponent implements OnInit {
         }
       }
     });
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
+    let currentScrollHeight = Math.max(
+      document.documentElement.scrollTop,
+      document.body.scrollTop
+    );
+    if (!currentScrollHeight) {
+      console.log('top');
+    } else if (
+      currentScrollHeight + document.documentElement.clientHeight >=
+      document.documentElement.scrollHeight
+    ) {
+      console.log('bottom');
+    }
   }
 
   dataReceived() {
