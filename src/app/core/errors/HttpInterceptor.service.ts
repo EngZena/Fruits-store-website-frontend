@@ -5,9 +5,9 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
+import { catchError, finalize } from 'rxjs/operators';
 
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class GlobalHttpInterceptorService implements HttpInterceptor {
@@ -20,6 +20,9 @@ export class GlobalHttpInterceptorService implements HttpInterceptor {
         console.log('error is intercept');
         console.log(error);
         return throwError(error);
+      }),
+      finalize(() => {
+        console.log('error finished');
       })
     );
   }
