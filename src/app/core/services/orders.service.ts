@@ -27,8 +27,11 @@ export class OrdersService implements OnInit {
     const userId = JSON.parse(localStorage.getItem('userData')).id;
     return this.http.get(`${baseURL}/orders/${userId}.json`).pipe(
       map(responseData => {
-        const ordersList = Object.values(responseData);
-        return ordersList;
+        if (responseData != null) {
+          const ordersList = Object.values(responseData);
+          return ordersList;
+        }
+        return null;
       }),
       catchError(responseError => {
         const ordersList = [];
