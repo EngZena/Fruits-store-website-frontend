@@ -7,7 +7,7 @@
       <h2>There is no previous orders!!</h2>
     </div>
     <div *ngIf="!emptyOrdersList">
-      <div *ngFor="let order of ordersList" class="order">
+      <div *ngFor="let order of currentShownOrders" class="order">
         <ul class="list-group">
           <li class="list-group-item active">
             <span> <strong>Date</strong> </span>

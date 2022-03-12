@@ -1,6 +1,10 @@
+import * as fromApp from '../../store/app.reducer';
+import * as fromOrdersActions from './store/orders.actions';
+
 import { Component, HostListener, OnInit } from '@angular/core';
 
-import { OrdersService } from 'src/app/core/services/orders.service';
+import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-orders',
@@ -11,21 +15,33 @@ export class OrdersComponent implements OnInit {
   ordersList = [];
   isLoading: boolean = true;
   emptyOrdersList: boolean = false;
-  constructor(private ordersService: OrdersService) {}
+  currentShownOrders = [];
+
+  constructor(
+    private store: Store<fromApp.AppState>,
+    private route: ActivatedRoute
+  ) {
+    this.getOrdersData();
+  }
 
   ngOnInit(): void {
+    this.store.select('orders').subscribe(data => {
+      this.currentShownOrders = [...data.currentLoadedOrdersList];
+    });
+  }
+
+  getOrdersData() {
     this.isLoading = true;
-    this.ordersService.getOrderts().subscribe(data => {
-      if (data) {
-        this.ordersList = Object.values(data);
-        if (this.ordersList.length > 0) {
-          this.dataReceived();
-          return (this.emptyOrdersList = false);
-        } else {
-          this.dataReceived();
-          return (this.emptyOrdersList = true);
-        }
+    this.route.data.subscribe(data => {
+      if (data.prevOrders == null) {
+        this.dataReceived();
+        return (this.emptyOrdersList = true);
       }
+      this.ordersList = Object.values(data)[0];
+      this.dataReceived();
+      this.store.dispatch(
+        new fromOrdersActions.setAllUserOrders(this.ordersList)
+      );
     });
   }
 
@@ -36,12 +52,13 @@ export class OrdersComponent implements OnInit {
       document.body.scrollTop
     );
     if (!currentScrollHeight) {
-      console.log('top');
+      // console.log('top');
     } else if (
       currentScrollHeight + document.documentElement.clientHeight >=
       document.documentElement.scrollHeight
     ) {
-      console.log('bottom');
+      // console.log('bottom');
+      this.store.dispatch(new fromOrdersActions.setMoreUserOrders());
     }
   }
 
