@@ -6,6 +6,7 @@ import { FruitsStoreComponent } from './containers/fruits-store/fruits-store.com
 import { LoginComponent } from './containers/auth/login/login.component';
 import { NgModule } from '@angular/core';
 import { OrdersComponent } from './containers/orders/orders.component';
+import { OrdersResolver } from './core/services/Orders.resolver';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SignupComponent } from './containers/auth/signup/signup.component';
 
@@ -15,7 +16,12 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'checkout', canActivate: [AuthGuard], component: CheckoutComponent },
-  { path: 'orders', canActivate: [AuthGuard], component: OrdersComponent },
+  {
+    path: 'orders',
+    canActivate: [AuthGuard],
+    component: OrdersComponent,
+    resolve: { prevOrders: OrdersResolver },
+  },
   { path: '**', component: PageNotFoundComponent },
 ];
 
@@ -24,5 +30,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
   exports: [RouterModule],
+  providers: [OrdersResolver],
 })
 export class AppRoutingModule {}
