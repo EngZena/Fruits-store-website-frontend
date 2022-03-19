@@ -70,4 +70,8 @@ export class CheckoutComponent implements OnInit {
       this.showAlert = false;
     }, 2000);
   }
+
+  onFindCurrentUserCityName(cityName) {
+    this.checkoutForm.get('streetName').setValue(cityName);
+  }
 }
