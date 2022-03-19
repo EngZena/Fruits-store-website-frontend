@@ -51,6 +51,7 @@ export class LeafletMapComponent implements AfterViewInit {
       console.log('success');
       console.log(`Your location: (${latitude},${longitude})`);
       console.log('accuracy', accuracy);
+      new L.Marker([latitude, longitude]).addTo(this.map);
       this.map.setView(new L.LatLng(latitude, longitude), 16);
     }
     function onError() {
