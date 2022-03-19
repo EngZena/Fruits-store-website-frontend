@@ -1,7 +1,7 @@
 import * as L from 'leaflet';
 import * as mapLayers from './../../core/constants/index';
 
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
 
 import { CitiesService } from 'src/app/core/services/cities.service';
 import { FormControl } from '@angular/forms';
@@ -16,6 +16,8 @@ export class LeafletMapComponent implements AfterViewInit {
   private currentZoomLevel = 16;
   isSatelliteLayer: boolean = false;
   searchText: FormControl = new FormControl();
+  @Output()
+  currentUserCityName = new EventEmitter<string>();
 
   constructor(private citiesService: CitiesService) {}
 
@@ -52,12 +54,20 @@ export class LeafletMapComponent implements AfterViewInit {
       console.log(`Your location: (${latitude},${longitude})`);
       console.log('accuracy', accuracy);
       new L.Marker([latitude, longitude]).addTo(this.map);
+      this.findCityName(latitude, longitude);
       this.map.setView(new L.LatLng(latitude, longitude), 16);
     }
     function onError() {
       console.log('error');
       console.log('Failed to get your location!');
     }
+  }
+
+  findCityName(latitude: number, longitude: number) {
+    this.citiesService.getCityName(latitude, longitude).subscribe(data => {
+      const result: any = data;
+      this.currentUserCityName.emit(result.display_name);
+    });
   }
 
   zoomIn(): void {

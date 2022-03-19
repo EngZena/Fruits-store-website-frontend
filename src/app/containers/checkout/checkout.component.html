@@ -89,7 +89,10 @@
                   formControlName="notes"></textarea>
                 <label>Location</label>
                 <div class="map-container">
-                  <app-leaflet-map></app-leaflet-map>
+                  <app-leaflet-map
+                    (currentUserCityName)="
+                      onFindCurrentUserCityName($event)
+                    "></app-leaflet-map>
                 </div>
                 <div class="center content">
                   <button

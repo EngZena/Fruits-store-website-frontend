@@ -25,4 +25,17 @@ export class CitiesService {
         })
       );
   }
+
+  getCityName(lat: number, lng: number) {
+    return this.http
+      .get(`${MapServicesUrl}/reverse?lat=${lat}&lon=${lng}&format=json`)
+      .pipe(
+        tap(response => {
+          return response;
+        }),
+        catchError(responseError => {
+          return throwError(responseError);
+        })
+      );
+  }
 }
