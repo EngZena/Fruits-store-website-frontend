@@ -1,4 +1,5 @@
 import * as L from 'leaflet';
+import * as mapLayers from './../../core/constants/index';
 
 import { AfterViewInit, Component } from '@angular/core';
 
@@ -13,6 +14,7 @@ import { FormControl } from '@angular/forms';
 export class LeafletMapComponent implements AfterViewInit {
   private map;
   private currentZoomLevel = 16;
+  isSatelliteLayer: boolean = false;
   searchText: FormControl = new FormControl();
 
   constructor(private citiesService: CitiesService) {}
@@ -23,15 +25,12 @@ export class LeafletMapComponent implements AfterViewInit {
       zoom: this.currentZoomLevel,
     });
 
-    const tiles = L.tileLayer(
-      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      {
-        maxZoom: 18,
-        minZoom: 3,
-        attribution:
-          '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      }
-    );
+    const tiles = L.tileLayer(mapLayers.defaultLayer, {
+      maxZoom: 18,
+      minZoom: 3,
+      attribution:
+        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    });
 
     tiles.addTo(this.map);
     this.map.zoomControl.remove();
@@ -70,6 +69,23 @@ export class LeafletMapComponent implements AfterViewInit {
     let currentZoom = this.map.getZoom();
     this.currentZoomLevel = --currentZoom;
     this.map.setZoom(this.currentZoomLevel);
+  }
+
+  toggleMapLayer() {
+    let currentLayer = mapLayers.defaultLayer;
+    if (this.isSatelliteLayer) {
+      currentLayer = mapLayers.defaultLayer;
+      this.toggleSatelliteLayer();
+    } else {
+      currentLayer = mapLayers.satelliteLayer;
+      this.toggleSatelliteLayer();
+    }
+    const tiles = L.tileLayer(currentLayer);
+    tiles.addTo(this.map);
+  }
+
+  toggleSatelliteLayer() {
+    this.isSatelliteLayer = !this.isSatelliteLayer;
   }
 
   search() {

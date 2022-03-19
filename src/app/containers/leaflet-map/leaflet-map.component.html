@@ -11,6 +11,12 @@
     style="margin-top: 80px">
     <img src="../../../../assets/svg/zoom-out.svg" alt="location" />
   </div>
+  <div
+    class="map_button_container"
+    (click)="toggleMapLayer()"
+    style="margin-top: 110px">
+    <img src="../../../../assets/svg/layer.svg" alt="layer" />
+  </div>
   <div class="search_input">
     <input type="text" class="form-control" [formControl]="searchText" />
     <img
