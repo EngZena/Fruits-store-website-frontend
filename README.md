@@ -31,12 +31,12 @@ the libraries used in this project are
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-second version of the app has below features 
+second version of the app has below features
 
 - clear browser cache
-- one font family to the app 
-- eslint implementation 
+- one font family to the app
+- eslint implementation
 - ngrx (redux) dev tool
 - lazy load orders using ngrx
-- page no internet connection 
-- page not found  
+- page no internet connection
+- page not found
