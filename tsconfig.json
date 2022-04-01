@@ -14,7 +14,7 @@
     "module": "es2020",
     "lib": ["es2018", "dom"],
     "paths": {
-      "@components/*" : ["./src/app/components/*"],
+      "@user/components/*" : ["./src/app/user-site/components/*"],
       "@containers/*" : ["./src/app/containers/*"],
       "@core/*" : ["./src/app/core/*"],
       "@shared/*" : ["./src/app/shared/*"],
