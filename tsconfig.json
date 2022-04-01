@@ -17,7 +17,7 @@
       "@user/components/*" : ["./src/app/user-site/components/*"],
       "@user/containers/*" : ["./src/app/user-site/containers/*"],
       "@user/core/*" : ["./src/app/user-site/core/*"],
-      "@shared/*" : ["./src/app/shared/*"],
+      "@user/shared/*" : ["src/app/user-site/shared/*"],
       "@store/*" : ["./src/app/store/*"],
     }
   },
