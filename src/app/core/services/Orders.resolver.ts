@@ -5,7 +5,7 @@ import {
 } from '@angular/router';
 
 import { Injectable } from '@angular/core';
-import { OrdersService } from 'src/app/core/services/orders.service';
+import { OrdersService } from '@core/services/orders.service';
 
 @Injectable()
 export class OrdersResolver implements Resolve<any> {

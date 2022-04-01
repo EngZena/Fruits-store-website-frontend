@@ -1,4 +1,4 @@
-import * as fromApp from '../../../store/app.reducer';
+import * as fromApp from '@store/app.reducer';
 
 import {
   HttpEvent,
@@ -9,7 +9,7 @@ import {
 } from '@angular/common/http';
 import { exhaustMap, map, take } from 'rxjs/operators';
 
-import { AuthService } from 'src/app/core/services/auth.service';
+import { AuthService } from '@core/services/auth.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';

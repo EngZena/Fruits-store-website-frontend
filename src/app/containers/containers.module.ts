@@ -3,7 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CommonModule } from '@angular/common';
-import { ComponentsModule } from '../components/components.module';
+import { ComponentsModule } from '@components/components.module';
 import { FruitsStoreComponent } from './fruits-store/fruits-store.component';
 import { LeafletMapComponent } from './leaflet-map/leaflet-map.component';
 import { LoginComponent } from './auth/login/login.component';

@@ -1,14 +1,14 @@
-import * as fromApp from '../../store/app.reducer';
+import * as fromApp from '@store/app.reducer';
 import * as fromCheckoutActions from '../checkout/store/checkout.actions';
-import * as paginationFunctions from '../../shared';
+import * as paginationFunctions from '@shared/pagination';
 
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
-import { FruitsModel } from 'src/app/core/models/FruitsModel';
+import { FruitsModel } from '@core/models/FruitsModel';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { SummerFruitsService } from 'src/app/core/services/SummerFruits.service';
-import { WinterFruitsService } from 'src/app/core/services/WinterFruits.service';
+import { SummerFruitsService } from '@core/services/SummerFruits.service';
+import { WinterFruitsService } from '@core/services/WinterFruits.service';
 import { forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 

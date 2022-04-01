@@ -1,14 +1,15 @@
 import * as AuthActions from '../../auth/store/auth.actions';
-import * as fromApp from '../../../store/app.reducer';
+import * as fromApp from '@store/app.reducer';
 import * as pattrens from '../pattrens';
 
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { AuthService } from 'src/app/core/services/auth.service';
+import { AuthService } from '@core/services/auth.service';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
