@@ -8,23 +8,17 @@ import { NoInternetComponent } from './no-internet/no-internet.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RouterModule } from '@angular/router';
 
+const createdComponents = [
+  HeaderComponent,
+  LoadingComponent,
+  AlertMessageComponent,
+  DropdownDirective,
+  NoInternetComponent,
+  PageNotFoundComponent,
+];
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    LoadingComponent,
-    AlertMessageComponent,
-    DropdownDirective,
-    NoInternetComponent,
-    PageNotFoundComponent,
-  ],
+  declarations: [...createdComponents],
   imports: [CommonModule, RouterModule],
-  exports: [
-    HeaderComponent,
-    LoadingComponent,
-    AlertMessageComponent,
-    DropdownDirective,
-    NoInternetComponent,
-    PageNotFoundComponent,
-  ],
+  exports: [...createdComponents],
 })
 export class ComponentsModule {}

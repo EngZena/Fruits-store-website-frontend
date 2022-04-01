@@ -11,25 +11,18 @@ import { NgModule } from '@angular/core';
 import { OrdersComponent } from './orders/orders.component';
 import { SignupComponent } from './auth/signup/signup.component';
 
+const createdComponents = [
+  FruitsStoreComponent,
+  LoginComponent,
+  SignupComponent,
+  CheckoutComponent,
+  OrdersComponent,
+  CardComponent,
+  LeafletMapComponent,
+];
 @NgModule({
-  declarations: [
-    FruitsStoreComponent,
-    LoginComponent,
-    SignupComponent,
-    CheckoutComponent,
-    OrdersComponent,
-    CardComponent,
-    LeafletMapComponent,
-  ],
+  declarations: [...createdComponents],
   imports: [ComponentsModule, CommonModule, FormsModule, ReactiveFormsModule],
-  exports: [
-    FruitsStoreComponent,
-    LoginComponent,
-    SignupComponent,
-    CheckoutComponent,
-    OrdersComponent,
-    CardComponent,
-    LeafletMapComponent,
-  ],
+  exports: [...createdComponents],
 })
 export class ContainersModule {}
