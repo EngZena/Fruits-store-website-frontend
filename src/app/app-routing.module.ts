@@ -1,14 +1,14 @@
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { AuthGuard } from './containers/auth/login/auth.guard';
-import { CheckoutComponent } from './containers/checkout/checkout.component';
-import { FruitsStoreComponent } from './containers/fruits-store/fruits-store.component';
-import { LoginComponent } from './containers/auth/login/login.component';
+import { AuthGuard } from '@containers/auth/login/auth.guard';
+import { CheckoutComponent } from '@containers/checkout/checkout.component';
+import { FruitsStoreComponent } from '@containers/fruits-store/fruits-store.component';
+import { LoginComponent } from '@containers/auth/login/login.component';
 import { NgModule } from '@angular/core';
-import { OrdersComponent } from './containers/orders/orders.component';
-import { OrdersResolver } from './core/services/Orders.resolver';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { SignupComponent } from './containers/auth/signup/signup.component';
+import { OrdersComponent } from '@containers/orders/orders.component';
+import { OrdersResolver } from '@core/services/Orders.resolver';
+import { PageNotFoundComponent } from '@components/page-not-found/page-not-found.component';
+import { SignupComponent } from '@containers/auth/signup/signup.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'store', pathMatch: 'full' },

@@ -1,5 +1,5 @@
-import * as AuthActions from '../../containers/auth/store/auth.actions';
-import * as fromApp from '../../store/app.reducer';
+import * as AuthActions from '@containers/auth/store/auth.actions';
+import * as fromApp from '@store/app.reducer';
 
 import { catchError, tap } from 'rxjs/operators';
 

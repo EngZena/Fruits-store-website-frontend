@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-import { CheckoutListItem } from 'src/app/containers/checkout/store/checkout.reducers';
-import { FruitType } from 'src/app/core/models/FruitsModel';
+import { CheckoutListItem } from '@containers/checkout/store/checkout.reducers';
+import { FruitType } from '@core/models/FruitsModel';
 
 @Component({
   selector: 'app-card',

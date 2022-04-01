@@ -1,14 +1,14 @@
 import * as AuthActions from './auth.actions';
-import * as services from '../../../core/services/http-instanse';
+import * as services from '@core/services/http-instanse';
 
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 
-import { AuthService } from 'src/app/core/services/auth.service';
+import { AuthService } from '@core/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/core/models/usesr.model';
+import { User } from '@core/models/usesr.model';
 import { environment } from 'src/environments/environment';
 import { of } from 'rxjs';
 
