@@ -7,7 +7,7 @@ import { LoginComponent } from '@containers/auth/login/login.component';
 import { NgModule } from '@angular/core';
 import { OrdersComponent } from '@containers/orders/orders.component';
 import { OrdersResolver } from '@core/services/Orders.resolver';
-import { PageNotFoundComponent } from '@components/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from '@user/components/page-not-found/page-not-found.component';
 import { SignupComponent } from '@containers/auth/signup/signup.component';
 
 const routes: Routes = [
