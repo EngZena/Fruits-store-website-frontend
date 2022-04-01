@@ -10,6 +10,7 @@ export const pagination = (
   );
 };
 
+
 export const NextPage = (currentPage: number, fullArray: FruitsModel[]) => {
   if (currentPage > 0 && currentPage < 4) {
     const page = currentPage + 1;
