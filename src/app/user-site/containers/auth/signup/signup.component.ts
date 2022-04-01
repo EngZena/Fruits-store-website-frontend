@@ -1,4 +1,4 @@
-import * as AuthActions from '../../auth/store/auth.actions';
+import * as AuthActions from '../store/auth.actions';
 import * as fromApp from '@store/app.reducer';
 import * as pattrens from '../pattrens';
 

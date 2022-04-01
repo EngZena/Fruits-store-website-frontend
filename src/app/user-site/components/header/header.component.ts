@@ -1,4 +1,4 @@
-import * as AuthActions from '@containers/auth/store/auth.actions';
+import * as AuthActions from '@user/containers/auth/store/auth.actions';
 import * as fromApp from '@store/app.reducer';
 
 import { Component, OnDestroy, OnInit } from '@angular/core';

@@ -1,6 +1,6 @@
-import * as fromAuth from '@containers/auth/store/auth.reducer';
-import * as fromCheckout from '@containers/checkout/store/checkout.reducers';
-import * as fromOrders from '@containers/orders/store/orders.reducer';
+import * as fromAuth from '@user/containers/auth/store/auth.reducer';
+import * as fromCheckout from '@user/containers/checkout/store/checkout.reducers';
+import * as fromOrders from '@user/containers/orders/store/orders.reducer';
 
 import { ActionReducerMap } from '@ngrx/store';
 

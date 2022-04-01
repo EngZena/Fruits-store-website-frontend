@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-import { CheckoutListItem } from '@containers/checkout/store/checkout.reducers';
+import { CheckoutListItem } from '@user/containers/checkout/store/checkout.reducers';
 import { FruitType } from '@core/models/FruitsModel';
 
 @Component({

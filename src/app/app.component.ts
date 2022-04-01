@@ -1,5 +1,5 @@
 import * as fromApp from '@store/app.reducer';
-import * as fromAuthActions from '@containers/auth/store/auth.actions';
+import * as fromAuthActions from '@user/containers/auth/store/auth.actions';
 
 import { Component, OnInit } from '@angular/core';
 

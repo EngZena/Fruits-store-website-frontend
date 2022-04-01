@@ -2,10 +2,10 @@ import * as fromApp from '@store/app.reducer';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthEffects } from '@containers/auth/store/auth.effects';
+import { AuthEffects } from '@user/containers/auth/store/auth.effects';
 import { BrowserModule } from '@angular/platform-browser';
 import { ComponentsModule } from '@user/components/components.module';
-import { ContainersModule } from '@containers/containers.module';
+import { ContainersModule } from '@user/containers/containers.module';
 import { CoreModule } from '@core/core.module';
 import { EffectsModule } from '@ngrx/effects';
 import { FormsModule } from '@angular/forms';
