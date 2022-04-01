@@ -18,7 +18,7 @@
       "@user/containers/*" : ["./src/app/user-site/containers/*"],
       "@user/core/*" : ["./src/app/user-site/core/*"],
       "@user/shared/*" : ["src/app/user-site/shared/*"],
-      "@store/*" : ["./src/app/store/*"],
+      "@user/store/*" : ["./src/app/user-site/store/*"],
     }
   },
   "angularCompilerOptions": {
