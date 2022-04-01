@@ -1,9 +1,9 @@
 import * as L from 'leaflet';
-import * as mapLayers from '@core/constants/index';
+import * as mapLayers from '@user/core/constants/index';
 
 import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
 
-import { CitiesService } from '@core/services/cities.service';
+import { CitiesService } from '@user/core/services/cities.service';
 import { FormControl } from '@angular/forms';
 
 @Component({

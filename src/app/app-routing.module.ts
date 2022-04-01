@@ -6,7 +6,7 @@ import { FruitsStoreComponent } from '@user/containers/fruits-store/fruits-store
 import { LoginComponent } from '@user/containers/auth/login/login.component';
 import { NgModule } from '@angular/core';
 import { OrdersComponent } from '@user/containers/orders/orders.component';
-import { OrdersResolver } from '@core/services/Orders.resolver';
+import { OrdersResolver } from '@user/core/services/Orders.resolver';
 import { PageNotFoundComponent } from '@user/components/page-not-found/page-not-found.component';
 import { SignupComponent } from '@user/containers/auth/signup/signup.component';
 

@@ -9,7 +9,7 @@ import {
 } from '@angular/common/http';
 import { exhaustMap, map, take } from 'rxjs/operators';
 
-import { AuthService } from '@core/services/auth.service';
+import { AuthService } from '@user/core/services/auth.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';

@@ -6,7 +6,7 @@ import { AuthEffects } from '@user/containers/auth/store/auth.effects';
 import { BrowserModule } from '@angular/platform-browser';
 import { ComponentsModule } from '@user/components/components.module';
 import { ContainersModule } from '@user/containers/containers.module';
-import { CoreModule } from '@core/core.module';
+import { CoreModule } from '@user/core/core.module';
 import { EffectsModule } from '@ngrx/effects';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';

@@ -5,6 +5,7 @@ import { FruitsModel } from '../models/FruitsModel';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { baseURL } from './http-instanse';
+
 @Injectable({
   providedIn: 'root',
 })

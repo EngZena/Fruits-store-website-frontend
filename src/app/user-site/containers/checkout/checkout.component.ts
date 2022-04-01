@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { CheckoutListItem } from './store/checkout.reducers';
-import { OrdersService } from '@core/services/orders.service';
+import { OrdersService } from '@user/core/services/orders.service';
 import { Store } from '@ngrx/store';
 import { phoneNumberPattren } from '../auth/pattrens';
 
