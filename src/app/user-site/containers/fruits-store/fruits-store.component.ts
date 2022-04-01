@@ -1,4 +1,4 @@
-import * as fromApp from '@store/app.reducer';
+import * as fromApp from '@user/store/app.reducer';
 import * as fromCheckoutActions from '../checkout/store/checkout.actions';
 import * as paginationFunctions from '@user/shared/pagination';
 

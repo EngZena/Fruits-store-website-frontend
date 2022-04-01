@@ -1,4 +1,4 @@
-import * as fromApp from '@store/app.reducer';
+import * as fromApp from '@user/store/app.reducer';
 import * as fromcheckoutActions from './store/checkout.actions';
 
 import { Component, OnInit } from '@angular/core';

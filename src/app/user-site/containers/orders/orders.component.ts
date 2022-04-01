@@ -1,4 +1,4 @@
-import * as fromApp from '@store/app.reducer';
+import * as fromApp from '@user/store/app.reducer';
 import * as fromOrdersActions from './store/orders.actions';
 
 import { Component, HostListener, OnInit } from '@angular/core';

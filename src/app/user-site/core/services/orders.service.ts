@@ -1,4 +1,4 @@
-import * as fromAppStore from '@store/app.reducer';
+import * as fromAppStore from '@user/store/app.reducer';
 import * as fromCheckoutActions from '@user/containers/checkout/store/checkout.actions';
 
 import { Injectable, OnInit } from '@angular/core';
