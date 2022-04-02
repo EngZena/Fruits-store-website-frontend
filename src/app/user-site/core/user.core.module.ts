@@ -20,14 +20,16 @@ import { GlobalHttpInterceptorService } from './errors/HttpInterceptor.service';
   ],
   exports: [HttpClientModule],
 })
-export class CoreModule {
+export class UserCoreModule {
   constructor(
     @Optional()
     @SkipSelf()
-    parentModule: CoreModule
+    parentModule: UserCoreModule
   ) {
     if (parentModule) {
-      throw new Error('CoreModule is already loaded. Import only in AppModule');
+      throw new Error(
+        'UserCoreModule is already loaded. Import only in AppModule'
+      );
     }
   }
 }
