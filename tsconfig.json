@@ -14,11 +14,11 @@
     "module": "es2020",
     "lib": ["es2018", "dom"],
     "paths": {
+      "@store/*" : ["./src/app/store/*"],
       "@user/components/*" : ["./src/app/user-site/components/*"],
       "@user/containers/*" : ["./src/app/user-site/containers/*"],
       "@user/core/*" : ["./src/app/user-site/core/*"],
       "@user/shared/*" : ["./src/app/user-site/shared/*"],
-      "@user/store/*" : ["./src/app/user-site/store/*"],
     }
   },
   "angularCompilerOptions": {

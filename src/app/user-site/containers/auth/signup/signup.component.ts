@@ -1,5 +1,5 @@
 import * as AuthActions from '../store/auth.actions';
-import * as fromApp from '@user/store/app.reducer';
+import * as fromApp from '@store/app.reducer';
 import * as pattrens from '../pattrens';
 
 import { Component, OnInit } from '@angular/core';
