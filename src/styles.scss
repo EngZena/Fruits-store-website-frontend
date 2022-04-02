@@ -39,12 +39,18 @@ body {
   width: 5px;
 }
 
-*::-webkit-scrollbar-track {
+// *::-webkit-scrollbar-track {
   // background: $blue_color;
-}
+// }
 
 *::-webkit-scrollbar-thumb {
   background-color: $green_color;
   border-radius: 20px;
   // border: 3px solid $blue_color;
+}
+
+html, body { height: 100%; }
+body { 
+  margin: 0;   
+  // font-family: Roboto, "Helvetica Neue", sans-serif; 
 }

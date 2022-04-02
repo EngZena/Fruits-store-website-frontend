@@ -3,6 +3,7 @@ import * as fromApp from '@store/app.reducer';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthEffects } from '@user/containers/auth/store/auth.effects';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
 import { FormsModule } from '@angular/forms';
@@ -27,6 +28,7 @@ import { UserCoreModule } from '@user/core/user.core.module';
     StoreModule.forRoot(fromApp.appReducer),
     EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({}),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
