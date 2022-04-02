@@ -21,4 +21,4 @@ const createdComponents = [
   imports: [CommonModule, RouterModule],
   exports: [...createdComponents],
 })
-export class ComponentsModule {}
+export class UserComponentsModule {}

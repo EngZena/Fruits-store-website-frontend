@@ -1,5 +1,5 @@
 import * as fromActions from '../store/auth.actions';
-import * as fromApp from '@user/store/app.reducer';
+import * as fromApp from '@store/app.reducer';
 
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
