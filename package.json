@@ -29,6 +29,7 @@
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-prettier": "^4.0.0",
     "leaflet": "^1.7.1",
+    "ngx-cookie-service": "^13.2.0",
     "prettier-eslint": "^13.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
