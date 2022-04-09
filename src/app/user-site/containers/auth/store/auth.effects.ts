@@ -5,10 +5,12 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 
 import { AuthService } from '@user/core/services/auth.service';
+import { CookiesService } from 'src/app/shared/services/cookies.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '@user/core/models/usesr.model';
+import { adminEmail } from '../admin.data';
 import { environment } from 'src/environments/environment';
 import { of } from 'rxjs';
 
@@ -65,7 +67,8 @@ export class AuthEffects {
     private action$: Actions,
     private http: HttpClient,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private cookiesService: CookiesService
   ) {}
 
   @Effect()
@@ -118,6 +121,11 @@ export class AuthEffects {
             this.authService.setLogoutTimer(+resDate.expiresIn * 1000);
           }),
           map(resData => {
+            if (resData.email === adminEmail) {
+              this.cookiesService.setCookie('email', resData.email);
+              this.cookiesService.setCookie('token', resData.idToken);
+              this.cookiesService.setCookie('userId', resData.localId);
+            }
             return handleAuthentication(
               +resData.expiresIn,
               resData.email,
@@ -185,6 +193,7 @@ export class AuthEffects {
     tap(() => {
       this.authService.clearLogoutTimer();
       localStorage.removeItem('userData');
+      this.cookiesService.deleteAll();
       this.router.navigate(['/store']);
     })
   );

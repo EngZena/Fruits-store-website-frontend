@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthEffects } from '@user/containers/auth/store/auth.effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { CookieService } from 'ngx-cookie-service';
 import { EffectsModule } from '@ngrx/effects';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -30,7 +31,7 @@ import { UserCoreModule } from '@user/core/user.core.module';
     StoreDevtoolsModule.instrument({}),
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
