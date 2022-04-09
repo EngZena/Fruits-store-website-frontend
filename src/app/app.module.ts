@@ -10,6 +10,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { SharedComponentsModule } from './shared/components/shared.components.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { UserComponentsModule } from '@user/components/user.components.module';
@@ -26,6 +27,7 @@ import { UserCoreModule } from '@user/core/user.core.module';
     UserContainersModule,
     HttpClientModule,
     UserCoreModule,
+    SharedComponentsModule,
     StoreModule.forRoot(fromApp.appReducer),
     EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({}),
