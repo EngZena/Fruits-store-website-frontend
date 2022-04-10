@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '@user/core/models/usesr.model';
+import { UserRoleService } from '@user/core/services/user.role.service';
 import { adminEmail } from '../admin.data';
 import { environment } from 'src/environments/environment';
 import { of } from 'rxjs';
@@ -68,7 +69,8 @@ export class AuthEffects {
     private http: HttpClient,
     private router: Router,
     private authService: AuthService,
-    private cookiesService: CookiesService
+    private cookiesService: CookiesService,
+    private userRoleService: UserRoleService
   ) {}
 
   @Effect()
@@ -145,7 +147,13 @@ export class AuthEffects {
     ofType(AuthActions.AUTHENTICATE_SUCCESS),
     tap((authSuccessAction: AuthActions.AuthenticateSuccess) => {
       if (authSuccessAction.payload.redirect) {
-        this.router.navigate(['/store']);
+        if (authSuccessAction.payload.email === adminEmail) {
+          this.userRoleService.changeUserRole(true);
+          this.router.navigate(['/admin']);
+        } else {
+          this.userRoleService.changeUserRole(false);
+          this.router.navigate(['/store']);
+        }
       }
     })
   );

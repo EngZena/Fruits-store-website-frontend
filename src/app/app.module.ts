@@ -1,5 +1,6 @@
 import * as fromApp from '@store/app.reducer';
 
+import { AdminSiteHomePageComponent } from './admin-site/containers/admin-site-home-page/admin-site-home-page.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthEffects } from '@user/containers/auth/store/auth.effects';
@@ -18,7 +19,7 @@ import { UserContainersModule } from '@user/containers/user.containers.module';
 import { UserCoreModule } from '@user/core/user.core.module';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AdminSiteHomePageComponent],
   imports: [
     BrowserModule,
     FormsModule,
