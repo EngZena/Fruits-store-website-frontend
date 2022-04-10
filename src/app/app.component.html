@@ -1,13 +1,19 @@
-<div *ngIf="!isOnline">
+<ng-container *ngIf="!isOnline">
   <app-no-internet></app-no-internet>
-</div>
-<div *ngIf="isOnline">
-  <app-header></app-header>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <router-outlet></router-outlet>
+</ng-container>
+<ng-container *ngIf="isOnline">
+  <ng-container *ngIf="isAdminUser">
+    <h1>isAdminUser</h1>
+    <router-outlet></router-outlet>
+  </ng-container>
+  <ng-container *ngIf="!isAdminUser">
+    <app-header></app-header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <router-outlet></router-outlet>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+  </ng-container>
+</ng-container>

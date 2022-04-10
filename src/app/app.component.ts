@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { NetworkService } from '@user/core/services/Network.service';
 import { Store } from '@ngrx/store';
+import { UserRoleService } from '@user/core/services/user.role.service';
+import { adminEmail } from '@user/containers/auth/admin.data';
 
 @Component({
   selector: 'app-root',
@@ -13,10 +15,12 @@ import { Store } from '@ngrx/store';
 })
 export class AppComponent implements OnInit {
   isOnline: Boolean;
+  isAdminUser: Boolean;
 
   constructor(
     private store: Store<fromApp.AppState>,
-    private networkService: NetworkService
+    private networkService: NetworkService,
+    private userRoleService: UserRoleService
   ) {}
 
   ngOnInit(): void {
@@ -24,5 +28,19 @@ export class AppComponent implements OnInit {
     this.networkService
       .createOnline$()
       .subscribe(isOnline => (this.isOnline = isOnline));
+    this.userRoleService.isAdminUser.subscribe(
+      isAdminUser => (this.isAdminUser = isAdminUser)
+    );
+    this.checkUserRole();
+  }
+
+  checkUserRole() {
+    this.store.select('auth').subscribe(data => {
+      if (data.user.email === adminEmail) {
+        this.isAdminUser = true;
+      } else {
+        this.isAdminUser = false;
+      }
+    });
   }
 }
