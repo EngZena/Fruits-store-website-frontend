@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthEffects } from '@user/containers/auth/store/auth.effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { CookieService } from 'ngx-cookie-service';
 import { EffectsModule } from '@ngrx/effects';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { SharedComponentsModule } from './shared/components/shared.components.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { UserComponentsModule } from '@user/components/user.components.module';
@@ -25,12 +27,13 @@ import { UserCoreModule } from '@user/core/user.core.module';
     UserContainersModule,
     HttpClientModule,
     UserCoreModule,
+    SharedComponentsModule,
     StoreModule.forRoot(fromApp.appReducer),
     EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({}),
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -4,21 +4,18 @@ import { DropdownDirective } from './Dropdown/dropdown.directive';
 import { HeaderComponent } from './header/header.component';
 import { LoadingComponent } from './loading/loading.component';
 import { NgModule } from '@angular/core';
-import { NoInternetComponent } from './no-internet/no-internet.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RouterModule } from '@angular/router';
+import { SharedComponentsModule } from 'src/app/shared/components/shared.components.module';
 
 const createdComponents = [
   HeaderComponent,
   LoadingComponent,
   AlertMessageComponent,
   DropdownDirective,
-  NoInternetComponent,
-  PageNotFoundComponent,
 ];
 @NgModule({
   declarations: [...createdComponents],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, SharedComponentsModule],
   exports: [...createdComponents],
 })
 export class UserComponentsModule {}
