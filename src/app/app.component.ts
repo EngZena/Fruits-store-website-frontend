@@ -1,12 +1,12 @@
 import * as fromApp from '@store/app.reducer';
-import * as fromAuthActions from '@user/containers/auth/store/auth.actions';
+import * as fromAuthActions from './shared/containers/auth/store/auth.actions';
 
 import { Component, OnInit } from '@angular/core';
 
 import { NetworkService } from '@user/core/services/Network.service';
 import { Store } from '@ngrx/store';
 import { UserRoleService } from '@user/core/services/user.role.service';
-import { adminEmail } from '@user/containers/auth/admin.data';
+import { adminEmail } from './shared/containers/auth/admin.data';
 
 @Component({
   selector: 'app-root',
