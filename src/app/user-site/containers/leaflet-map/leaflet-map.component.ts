@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import * as L from 'leaflet';
 import * as mapLayers from '@user/core/constants/index';
 
@@ -58,8 +59,8 @@ export class LeafletMapComponent implements AfterViewInit {
       this.map.setView(new L.LatLng(latitude, longitude), 16);
     }
     function onError() {
-      console.log('error');
-      console.log('Failed to get your location!');
+      console.error('error');
+      console.error('Failed to get your location!');
     }
   }
 
