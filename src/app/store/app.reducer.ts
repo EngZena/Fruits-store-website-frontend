@@ -1,4 +1,4 @@
-import * as fromAuth from '@user/containers/auth/store/auth.reducer';
+import * as fromAuth from '../shared/containers/auth/store/auth.reducer';
 import * as fromCheckout from '@user/containers/checkout/store/checkout.reducers';
 import * as fromOrders from '@user/containers/orders/store/orders.reducer';
 

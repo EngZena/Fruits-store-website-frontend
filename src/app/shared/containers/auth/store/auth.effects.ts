@@ -4,7 +4,7 @@ import * as services from '@user/core/services/http-instanse';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 
-import { AuthService } from '@user/core/services/auth.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { CookiesService } from 'src/app/shared/services/cookies.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
