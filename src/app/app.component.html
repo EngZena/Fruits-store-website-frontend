@@ -3,8 +3,19 @@
 </ng-container>
 <ng-container *ngIf="isOnline">
   <ng-container *ngIf="isAdminUser">
-    <h1>isAdminUser</h1>
-    <router-outlet></router-outlet>
+    <!-- below links should be added in index.html page but
+       because not the whole app using material library they added here  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet" />
+    <div class="mat-typography admin_container">
+      <h1>isAdminUser</h1>
+      <router-outlet></router-outlet>
+    </div>
   </ng-container>
   <ng-container *ngIf="!isAdminUser">
     <app-header></app-header>

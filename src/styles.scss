@@ -40,7 +40,7 @@ body {
 }
 
 // *::-webkit-scrollbar-track {
-  // background: $blue_color;
+// background: $blue_color;
 // }
 
 *::-webkit-scrollbar-thumb {
@@ -49,8 +49,11 @@ body {
   // border: 3px solid $blue_color;
 }
 
-html, body { height: 100%; }
-body { 
-  margin: 0;   
-  // font-family: Roboto, "Helvetica Neue", sans-serif; 
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  // font-family: Roboto, "Helvetica Neue", sans-serif;
 }
