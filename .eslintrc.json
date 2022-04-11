@@ -39,7 +39,8 @@
             "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
             "allowSeparatedGroups": false
           }
-        ]
+        ],
+        "max-len": ["error", {"code": 80}]
       }
     },
     {
