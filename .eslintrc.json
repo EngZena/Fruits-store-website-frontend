@@ -39,7 +39,16 @@
             "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
             "allowSeparatedGroups": false
           }
-        ]
+        ],
+        "max-len": [
+          "error",
+          {
+            "code": 120,
+            "ignorePattern": "^import .*",
+            "ignoreRegExpLiterals": true
+          }
+        ],
+        "no-console": ["error", { "allow": ["warn", "error"] }]
       }
     },
     {

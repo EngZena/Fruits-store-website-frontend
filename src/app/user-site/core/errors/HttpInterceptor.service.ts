@@ -17,11 +17,12 @@ export class GlobalHttpInterceptorService implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
       catchError(error => {
-        console.log('error is intercept');
-        console.log(error);
+        console.error('error is intercept');
+        console.error(error);
         return throwError(error);
       }),
       finalize(() => {
+        // eslint-disable-next-line no-console
         console.log('error finished');
       })
     );
