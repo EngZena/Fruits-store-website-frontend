@@ -40,7 +40,14 @@
             "allowSeparatedGroups": false
           }
         ],
-        "max-len": ["error", {"code": 80}]
+        "max-len": [
+          "error",
+          {
+            "code": 120,
+            "ignorePattern": "^import .*",
+            "ignoreRegExpLiterals": true
+          }
+        ]
       }
     },
     {
