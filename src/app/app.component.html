@@ -13,8 +13,9 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet" />
     <div class="mat-typography admin_container">
-      <h1>isAdminUser</h1>
-      <router-outlet></router-outlet>
+      <app-layout>
+        <router-outlet></router-outlet>
+      </app-layout>
     </div>
   </ng-container>
   <ng-container *ngIf="!isAdminUser">

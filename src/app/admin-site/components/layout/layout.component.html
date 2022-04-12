@@ -1,0 +1,22 @@
+<mat-drawer-container [hasBackdrop]="true">
+  <mat-drawer #drawer mode="push">drawer content</mat-drawer>
+  <mat-drawer-content>
+    <mat-toolbar color="primary">
+      <button
+        mat-icon-button
+        aria-label="admin portal menu"
+        (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Admin Portal</span>
+      <span class="buttons-spacer"></span>
+      <button mat-icon-button aria-label="toggle dark_mode">
+        <mat-icon>dark_mode</mat-icon>
+      </button>
+      <button mat-icon-button aria-label="open person menu">
+        <mat-icon>person</mat-icon>
+      </button>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,5 +1,6 @@
 import * as fromApp from '@store/app.reducer';
 
+import { AdminComponentsModule } from './admin-site/components/admin.components.module';
 import { AdminSiteHomePageComponent } from './admin-site/containers/admin-site-home-page/admin-site-home-page.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -31,6 +32,7 @@ import { UserCoreModule } from '@user/core/user.core.module';
     UserCoreModule,
     SharedComponentsModule,
     SharedContainersModule,
+    AdminComponentsModule,
     StoreModule.forRoot(fromApp.appReducer),
     EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({}),
