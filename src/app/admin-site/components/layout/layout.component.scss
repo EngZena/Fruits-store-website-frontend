@@ -1,0 +1,10 @@
+.buttons-spacer {
+    flex: 1 1 auto;
+}
+
+mat-drawer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 100vh;
+}
