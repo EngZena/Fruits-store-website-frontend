@@ -1,5 +1,23 @@
-<mat-drawer-container [hasBackdrop]="true">
-  <mat-drawer #drawer mode="push">drawer content</mat-drawer>
+<mat-drawer-container [hasBackdrop]="true" fxFlexFill>
+  <mat-drawer #drawer mode="push">
+    <div style="display: block">
+      <button mat-menu-item>
+        <a mat-button routerLink="admin/products" (click)="drawer.toggle()"
+          >Products</a
+        >
+      </button>
+      <button mat-menu-item>
+        <a mat-button routerLink="admin/orders" (click)="drawer.toggle()"
+          >Orders</a
+        >
+      </button>
+      <button mat-menu-item>
+        <a mat-button routerLink="admin/customers" (click)="drawer.toggle()"
+          >Customers</a
+        >
+      </button>
+    </div>
+  </mat-drawer>
   <mat-drawer-content>
     <mat-toolbar color="primary">
       <button
@@ -10,13 +28,31 @@
       </button>
       <span>Admin Portal</span>
       <span class="buttons-spacer"></span>
+      <div fxShow="true" fxHide.lt-md="true">
+        <a mat-button routerLink="admin/products">Products</a>
+        <a mat-button routerLink="admin/orders">Orders</a>
+        <a mat-button routerLink="admin/customers">Customers</a>
+      </div>
       <button mat-icon-button aria-label="toggle dark_mode">
         <mat-icon>dark_mode</mat-icon>
       </button>
-      <button mat-icon-button aria-label="open person menu">
+      <button
+        mat-icon-button
+        aria-label="open person menu"
+        [matMenuTriggerFor]="belowMenu">
         <mat-icon>person</mat-icon>
+        <mat-menu #belowMenu="matMenu" yPosition="below">
+          <button mat-menu-item>
+            <a mat-button routerLink="admin/profile">Profile</a>
+          </button>
+          <button mat-menu-item>
+            <a mat-button routerLink="store">Logout</a>
+          </button>
+        </mat-menu>
       </button>
     </mat-toolbar>
-    <ng-content></ng-content>
+    <div class="content">
+      <ng-content></ng-content>
+    </div>
   </mat-drawer-content>
 </mat-drawer-container>
