@@ -1,20 +1,31 @@
+@import "../../../../assets/scss/constants.scss";
+
 .buttons-spacer {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+mat-drawer {
+  background-color: $admin_site_light_theme_primary_color;
+  padding-top: 65px;
+  button {
+    color: $white_color;
+    font-weight: 100;
+    text-align: center;
+  }
 }
 
 mat-drawer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
-a{
-    text-decoration: none;
-    white-space: normal;
+a {
+  text-decoration: none;
+  white-space: normal;
 }
 
 .content {
-    margin: auto;
+  margin: auto;
 }
-
