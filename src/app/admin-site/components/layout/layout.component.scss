@@ -1,5 +1,17 @@
+@import "../../../../assets/scss/constants.scss";
+
 .buttons-spacer {
   flex: 1 1 auto;
+}
+
+mat-drawer {
+  background-color: $admin_site_light_theme_primary_color;
+  padding-top: 65px;
+  button {
+    color: $white_color;
+    font-weight: 100;
+    text-align: center;
+  }
 }
 
 mat-drawer-content {

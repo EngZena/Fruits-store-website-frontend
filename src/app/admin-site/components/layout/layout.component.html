@@ -1,20 +1,26 @@
 <mat-drawer-container [hasBackdrop]="true" fxFlexFill>
   <mat-drawer #drawer mode="side">
-    <div style="display: block">
-      <button mat-menu-item>
-        <a mat-button routerLink="admin/products" (click)="drawer.toggle()"
-          >Products</a
-        >
+    <div>
+      <button
+        mat-menu-item
+        routerLink="admin/products"
+        (click)="drawer.toggle()">
+        Products
       </button>
-      <button mat-menu-item>
-        <a mat-button routerLink="admin/orders" (click)="drawer.toggle()"
-          >Orders</a
-        >
+      <button mat-menu-item routerLink="admin/orders" (click)="drawer.toggle()">
+        Orders
       </button>
-      <button mat-menu-item>
-        <a mat-button routerLink="admin/customers" (click)="drawer.toggle()"
-          >Customers</a
-        >
+      <button
+        mat-menu-item
+        routerLink="admin/customers"
+        (click)="drawer.toggle()">
+        Customers
+      </button>
+      <button
+        mat-menu-item
+        routerLink="admin/profile"
+        (click)="drawer.toggle()">
+        Profile
       </button>
     </div>
   </mat-drawer>
