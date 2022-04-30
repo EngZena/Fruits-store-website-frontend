@@ -1,7 +1,8 @@
 import * as fromApp from '@store/app.reducer';
 
 import { AdminComponentsModule } from './admin-site/components/admin.components.module';
-import { AdminSiteHomePageComponent } from './admin-site/containers/admin-site-home-page/admin-site-home-page.component';
+import { AdminContainersModule } from './admin-site/containers/admin.containers.module';
+import { AdminSharedComponentsModule } from './admin-site/shared/admin.shared.components.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthEffects } from './shared/containers/auth/store/auth.effects';
@@ -21,7 +22,7 @@ import { UserContainersModule } from '@user/containers/user.containers.module';
 import { UserCoreModule } from '@user/core/user.core.module';
 
 @NgModule({
-  declarations: [AppComponent, AdminSiteHomePageComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -33,6 +34,8 @@ import { UserCoreModule } from '@user/core/user.core.module';
     SharedComponentsModule,
     SharedContainersModule,
     AdminComponentsModule,
+    AdminSharedComponentsModule,
+    AdminContainersModule,
     StoreModule.forRoot(fromApp.appReducer),
     EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({}),
