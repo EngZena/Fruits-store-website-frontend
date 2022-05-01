@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';
 const createdComponents = [AdminSiteHomePageComponent, CustomersComponent];
 @NgModule({
   declarations: [...createdComponents],
-  imports: [CommonModule, AdminSharedComponentsModule],
+  imports: [CommonModule],
   exports: [...createdComponents],
 })
 export class AdminContainersModule {}
