@@ -1,3 +1,4 @@
+import { AdminSharedComponentsModule } from '../shared/admin.shared.components.module';
 import { AdminSiteHomePageComponent } from './admin-site-home-page/admin-site-home-page.component';
 import { CommonModule } from '@angular/common';
 import { CustomersComponent } from './customers/customers.component';
