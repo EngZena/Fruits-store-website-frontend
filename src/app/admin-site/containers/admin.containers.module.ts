@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { CustomersComponent } from './customers/customers.component';
 import { NgModule } from '@angular/core';
 
-const createdComponents = [];
+const createdComponents = [AdminSiteHomePageComponent, CustomersComponent];
 @NgModule({
-  declarations: [AdminSiteHomePageComponent, CustomersComponent],
+  declarations: [...createdComponents],
   imports: [CommonModule],
-  exports: [AdminSiteHomePageComponent, CustomersComponent],
+  exports: [...createdComponents],
 })
 export class AdminContainersModule {}
