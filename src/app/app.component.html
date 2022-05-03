@@ -12,10 +12,14 @@
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet" />
-    <div class="mat-typography admin_container mat-app-background">
-      <app-layout>
-        <router-outlet></router-outlet>
-      </app-layout>
+    <div class="mat-typography admin_container">
+      <div [ngClass]="{ 'dark-theme': isDarkTheme | async }">
+        <div class="mat-app-background" style="min-height: 100vh">
+          <app-layout>
+            <router-outlet></router-outlet>
+          </app-layout>
+        </div>
+      </div>
     </div>
   </ng-container>
   <ng-container *ngIf="!isAdminUser">
