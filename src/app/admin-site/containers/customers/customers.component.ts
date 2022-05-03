@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
-import { CustomersService } from '../../core/services/customers.service';
+import { ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
 import { adminEmail } from 'src/app/shared/containers/auth/admin.data';
 
 @Component({
@@ -8,15 +7,17 @@ import { adminEmail } from 'src/app/shared/containers/auth/admin.data';
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.scss'],
 })
-export class CustomersComponent implements OnInit {
+export class CustomersComponent {
   customersList = [];
   customersDataExist = false;
-  constructor(private customerService: CustomersService) {}
+  constructor(private route: ActivatedRoute) {
+    this.getCustomersData();
+  }
 
-  ngOnInit(): void {
-    this.customerService.getCustoemrsData().subscribe(data => {
-      if (data.length > 0) {
-        this.customersList = [...data];
+  getCustomersData() {
+    this.route.data.subscribe((data: any) => {
+      if (data.customersData.length > 0) {
+        this.customersList = [...data.customersData];
         this.removeAdminFromCustomersList();
         this.customersDataExist = true;
       }
