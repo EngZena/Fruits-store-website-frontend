@@ -5,6 +5,7 @@ import { AdminSiteHomePageComponent } from './admin-site/containers/admin-site-h
 import { AuthGuard } from './shared/containers/auth/login/auth.guard';
 import { CheckoutComponent } from '@user/containers/checkout/checkout.component';
 import { CustomersComponent } from './admin-site/containers/customers/customers.component';
+import { CustomersResolver } from './admin-site/core/services/customers.resolver';
 import { FruitsStoreComponent } from '@user/containers/fruits-store/fruits-store.component';
 import { LoginComponent } from './shared/containers/auth/login/login.component';
 import { NgModule } from '@angular/core';
@@ -27,6 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
+    resolve: { customersData: CustomersResolver },
     children: [
       {
         path: '',
@@ -48,6 +50,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
   exports: [RouterModule],
-  providers: [OrdersResolver],
+  providers: [OrdersResolver, CustomersResolver],
 })
 export class AppRoutingModule {}
