@@ -39,7 +39,10 @@
         <button mat-button routerLink="admin/orders">Orders</button>
         <button mat-button routerLink="admin/customers">Customers</button>
       </div>
-      <button mat-icon-button aria-label="toggle dark_mode">
+      <button
+        mat-icon-button
+        aria-label="toggle dark_mode"
+        (click)="toggleDarkTheme()">
         <mat-icon>dark_mode</mat-icon>
       </button>
       <button

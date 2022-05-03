@@ -4,7 +4,9 @@ import * as fromAuthActions from './shared/containers/auth/store/auth.actions';
 import { Component, OnInit } from '@angular/core';
 
 import { NetworkService } from '@user/core/services/Network.service';
+import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { ThemeService } from './admin-site/core/theme/theme.service';
 import { UserRoleService } from '@user/core/services/user.role.service';
 import { adminEmail } from './shared/containers/auth/admin.data';
 
@@ -16,11 +18,13 @@ import { adminEmail } from './shared/containers/auth/admin.data';
 export class AppComponent implements OnInit {
   isOnline: Boolean;
   isAdminUser: Boolean;
+  isDarkTheme: Observable<boolean>;
 
   constructor(
     private store: Store<fromApp.AppState>,
     private networkService: NetworkService,
-    private userRoleService: UserRoleService
+    private userRoleService: UserRoleService,
+    private themeService: ThemeService
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +36,7 @@ export class AppComponent implements OnInit {
       isAdminUser => (this.isAdminUser = isAdminUser)
     );
     this.checkUserRole();
+    this.isDarkTheme = this.themeService.isDarkTheme;
   }
 
   checkUserRole() {
