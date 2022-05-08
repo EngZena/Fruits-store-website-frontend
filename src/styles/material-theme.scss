@@ -9,20 +9,30 @@ $warn: mat-palette($mat-red);
 $background-color: map_get($mat-indigo, 50);
 $theme: mat-light-theme($primary, $accent, $warn);
 $background: map-get($theme, background);
-$background: map_merge($background,(background: $background-color));
-$theme: map_merge($theme,(background: $background));
+$background: map_merge(
+  $background,
+  (
+    background: $background-color,
+  )
+);
+$theme: map_merge(
+  $theme,
+  (
+    background: $background,
+  )
+);
 
 @include angular-material-theme($theme);
 @include components-themes($theme);
 
 .dark-theme {
-    color: $light-primary-text;
-    $dark-primary: mat-palette($mat-green);
-    $dark-accent: mat-palette($mat-orange, A400, A100, A700);
-    $dark-warn: mat-palette($mat-red);
-    $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
-  
-    @include angular-material-theme($dark-theme);
-    @include components-themes($dark-theme);
-  }
+  color: $light-primary-text;
+  $dark-primary: mat-palette($mat-green);
+  $dark-accent: mat-palette($mat-orange, A400, A100, A700);
+  $dark-warn: mat-palette($mat-red);
+  $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+  @include angular-material-theme($dark-theme);
+  @include components-themes($dark-theme);
+}
 @include angular-material-theme($theme);
