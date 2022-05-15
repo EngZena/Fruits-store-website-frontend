@@ -3,8 +3,9 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './layout/layout.component';
 import { NgModule } from '@angular/core';
+import { RemoveCustomerDialogComponent } from './Dialog/remove-customer-dialog';
 
-const createdComponents = [LayoutComponent];
+const createdComponents = [LayoutComponent, RemoveCustomerDialogComponent];
 
 @NgModule({
   declarations: [...createdComponents],

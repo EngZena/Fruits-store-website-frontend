@@ -9,7 +9,12 @@
       </mat-card-content>
       <mat-card-actions>
         <button mat-stroked-button color="primary">CONTACT</button>
-        <button mat-stroked-button color="accent">REMOVE</button>
+        <button
+          mat-stroked-button
+          color="accent"
+          (click)="openDialog(customer)">
+          REMOVE
+        </button>
       </mat-card-actions>
     </mat-card>
   </div>
