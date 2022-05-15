@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Customer Data</h1>
+<div mat-dialog-content>
+  <p>
+    Are you sure you want to remove {{ data.firstName }} {{ data.lastName }} ?
+  </p>
+</div>
+<mat-dialog-actions align="end">
+  <button mat-stroked-button color="accent" mat-dialog-close>Cancel</button>
+  <button
+    mat-stroked-button
+    color="primary"
+    [mat-dialog-close]="data.userName"
+    cdkFocusInitial>
+    Remove
+  </button>
+</mat-dialog-actions>
