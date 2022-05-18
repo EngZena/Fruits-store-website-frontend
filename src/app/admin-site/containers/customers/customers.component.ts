@@ -1,9 +1,14 @@
+import * as fromApp from '../../../store/app.reducer';
+import * as fromCusotmersActions from './store/customer.actions';
+
 import { ActivatedRoute } from '@angular/router';
 import { Component } from '@angular/core';
-import { CustomerModel } from '../../core/models/customers.models';
+import { CustomerData } from '../../core/models/customers.models';
+import { CustomerState } from './store/customer.reducers';
 import { MatDialog } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
 import { RemoveCustomerDialogComponent } from '../../components/Dialog/remove-customer-dialog';
-import { adminEmail } from 'src/app/shared/containers/auth/admin.data';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-customers',
@@ -11,29 +16,30 @@ import { adminEmail } from 'src/app/shared/containers/auth/admin.data';
   styleUrls: ['./customers.component.scss'],
 })
 export class CustomersComponent {
-  customersList = [];
+  customersList = new Observable<CustomerState>();
   customersDataExist = false;
-  constructor(private route: ActivatedRoute, public dialog: MatDialog) {
+  constructor(
+    private route: ActivatedRoute,
+    public dialog: MatDialog,
+    private store: Store<fromApp.AppState>
+  ) {
     this.getCustomersData();
   }
 
   getCustomersData() {
     this.route.data.subscribe((data: any) => {
       if (data.customersData.length > 0) {
-        this.customersList = [...data.customersData];
-        this.removeAdminFromCustomersList();
+        this.store.dispatch(
+          new fromCusotmersActions.setCustomersData(data.customersData)
+        );
+        this.store.dispatch(new fromCusotmersActions.removeAdminFromTheList());
+        this.customersList = this.store.select('customers');
         this.customersDataExist = true;
       }
     });
   }
 
-  removeAdminFromCustomersList() {
-    this.customersList = this.customersList.filter(
-      data => data.email !== adminEmail
-    );
-  }
-
-  openDialog(customer: CustomerModel) {
+  openDialog(customer: CustomerData) {
     this.dialog
       .open(RemoveCustomerDialogComponent, {
         data: {
@@ -49,8 +55,8 @@ export class CustomersComponent {
   }
 
   removeUserFromCustomersList(userName: string) {
-    this.customersList = this.customersList.filter(
-      data => data.userName !== userName
+    this.store.dispatch(
+      new fromCusotmersActions.removeCustomerFromTheList(userName)
     );
   }
 }
