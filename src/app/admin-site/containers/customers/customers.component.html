@@ -1,6 +1,11 @@
 <ng-container *ngIf="customersDataExist">
   <div class="cards-container">
-    <mat-card *ngFor="let customer of customersList" class="card">
+    <mat-card
+      *ngFor="
+        let customer of (customersList | async).customersList;
+        let i = index
+      "
+      class="card">
       <mat-card-title>{{ customer.userName }}</mat-card-title>
       <mat-card-subtitle>{{ customer.email }}</mat-card-subtitle>
       <mat-card-subtitle>{{ customer.gender }}</mat-card-subtitle>
