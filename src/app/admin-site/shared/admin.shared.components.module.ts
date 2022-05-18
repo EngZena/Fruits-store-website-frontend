@@ -1,3 +1,4 @@
+import { CapitalizeFirstPipe } from './pipe/capitalizeFirst.pipe';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -17,9 +18,11 @@ const materialComponents = [
   MatCardModule,
   MatDialogModule,
 ];
+const createdComponents = [CapitalizeFirstPipe];
+
 @NgModule({
-  declarations: [],
+  declarations: [...createdComponents],
   imports: [CommonModule, ...materialComponents],
-  exports: [...materialComponents],
+  exports: [...materialComponents, ...createdComponents],
 })
 export class AdminSharedComponentsModule {}
