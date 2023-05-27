@@ -28,3 +28,9 @@
   left: 170px;
   cursor: pointer;
 }
+.cursor-crosshair {
+  cursor: crosshair;
+}
+.remove {
+  filter: $blue_color_filter;
+}
