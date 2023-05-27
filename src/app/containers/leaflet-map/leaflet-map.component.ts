@@ -1,3 +1,5 @@
+import 'leaflet-draw';
+
 import * as L from 'leaflet';
 import * as mapLayers from '@core/constants/index';
 
@@ -12,12 +14,17 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./leaflet-map.component.scss'],
 })
 export class LeafletMapComponent implements AfterViewInit {
-  private map;
+  private map: L.DrawMap;
   private currentZoomLevel = 16;
   isSatelliteLayer: boolean = false;
   searchText: FormControl = new FormControl();
   @Output()
   currentUserCityName = new EventEmitter<string>();
+  drawnItems = new L.FeatureGroup();
+  enableDraw: boolean = false;
+  markerLayer: L.Marker;
+  @Output()
+  address = new EventEmitter<string>();
 
   constructor(private citiesService: CitiesService) {}
 
@@ -25,6 +32,7 @@ export class LeafletMapComponent implements AfterViewInit {
     this.map = L.map('map', {
       center: [31.9515694, 35.9239625],
       zoom: this.currentZoomLevel,
+      drawControl: true,
     });
 
     const tiles = L.tileLayer(mapLayers.defaultLayer, {
@@ -34,8 +42,18 @@ export class LeafletMapComponent implements AfterViewInit {
         '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     });
 
+    L.Marker.prototype.options.icon = this.customIcon();
     tiles.addTo(this.map);
     this.map.zoomControl.remove();
+    this.map.addLayer(this.drawnItems);
+    this.map.removeControl(this.map.zoomControl);
+  }
+
+  customIcon() {
+    return L.icon({
+      shadowUrl: 'assets/img/marker-shadow.png',
+      iconUrl: 'assets/img/marker-icon.png',
+    });
   }
 
   ngAfterViewInit(): void {
@@ -49,11 +67,13 @@ export class LeafletMapComponent implements AfterViewInit {
       console.log('browser does not support geolocation');
     }
     function onSuccess(position) {
+      this.drawnItems.clearLayers();
       const { latitude, longitude, accuracy } = position.coords;
       console.log('success');
       console.log(`Your location: (${latitude},${longitude})`);
       console.log('accuracy', accuracy);
-      new L.Marker([latitude, longitude]).addTo(this.map);
+      this.markerLayer = new L.Marker([latitude, longitude]);
+      this.drawnItems.addLayer(this.markerLayer);
       this.findCityName(latitude, longitude);
       this.map.setView(new L.LatLng(latitude, longitude), 16);
     }
@@ -97,6 +117,28 @@ export class LeafletMapComponent implements AfterViewInit {
 
   toggleSatelliteLayer() {
     this.isSatelliteLayer = !this.isSatelliteLayer;
+  }
+
+  createMarker() {
+    this.enableDraw = false;
+    this.drawnItems.clearLayers();
+    this.map.on('click', (event: any) => {
+      if (this.enableDraw) {
+        const coord = event.latlng;
+        this.markerLayer = new L.Marker([coord.lat, coord.lng]);
+        this.drawnItems.addLayer(this.markerLayer);
+        this.map.addLayer(this.drawnItems);
+        this.map.off('click');
+        this.findCityName(coord.lat, coord.lng);
+      }
+      this.enableDraw = !this.enableDraw;
+      return;
+    });
+  }
+
+  removeLayers() {
+    this.drawnItems.clearLayers();
+    this.currentUserCityName.emit('');
   }
 
   search() {

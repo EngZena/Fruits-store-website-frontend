@@ -1,4 +1,4 @@
-<div id="map">
+<div id="map" [ngClass]="{ 'cursor-crosshair': enableDraw }">
   <div class="map_button_container" (click)="getLocation()">
     <img src="../../../../assets/svg/location.svg" alt="location" />
   </div>
@@ -16,6 +16,18 @@
     (click)="toggleMapLayer()"
     style="margin-top: 110px">
     <img src="../../../../assets/svg/layer.svg" alt="layer" />
+  </div>
+  <div
+    class="map_button_container"
+    (click)="createMarker()"
+    style="margin-top: 140px">
+    <img src="../../../../assets/svg/marker.svg" alt="marker" />
+  </div>
+  <div
+    class="map_button_container"
+    (click)="removeLayers()"
+    style="margin-top: 170px">
+    <img src="../../../../assets/svg/remove.svg" alt="remove" class="remove" />
   </div>
   <div class="search_input">
     <input type="text" class="form-control" [formControl]="searchText" />
