@@ -1,6 +1,6 @@
-@import "../../../assets//scss/constants.scss";
+@import '../../../assets//scss/constants.scss';
 
-.content{
+.content {
   margin: 2rem;
 }
 .noscroll {
@@ -36,7 +36,7 @@
     top: 0px;
   }
 }
-.checkoutItem{
+.checkoutItem {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -46,32 +46,37 @@
 img {
   width: 40%;
 }
-table{
-  th{
+table {
+  th {
     width: 20%;
   }
-  tr{
-    img{
+  tr {
+    img {
       margin: 1rem;
     }
   }
 }
-.btn{
+.btn {
   color: $white_color;
   border: 0;
   background: transparent;
 }
-.remove{
+.remove {
   filter: $green_color_filter;
   width: 50%;
 }
- /* Specilly used for Firefox */
- input[type=number] {
+/* Specilly used for Firefox */
+input[type='number'] {
   -moz-appearance: textfield;
 }
- /* Chrome, Safari, Edge, Opera */
+/* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+.map-container {
+  width: 500px;
+  height: 500px;
+  margin: auto;
 }

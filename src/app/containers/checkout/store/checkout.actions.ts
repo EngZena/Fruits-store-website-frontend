@@ -1,5 +1,6 @@
-import { Action } from '@ngrx/store';
 import * as checoutActionTypes from './checkout.action-types';
+
+import { Action } from '@ngrx/store';
 
 export class AddToCheckoutList implements Action {
   readonly type = checoutActionTypes.ADD_TO_SHOPPING_LIST;
@@ -32,7 +33,6 @@ export class CheckoutFail implements Action {
   readonly type = checoutActionTypes.CHECKOUT_FAIL;
   constructor(payload: string) {}
 }
-
 
 export type CheckoutActions =
   | AddToCheckoutList

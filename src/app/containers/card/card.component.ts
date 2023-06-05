@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { CheckoutListItem } from 'src/app/containers/checkout/store/checkout.reducers';
-import { FruitType } from 'src/app/models/FruitsModel';
+
+import { CheckoutListItem } from '@containers/checkout/store/checkout.reducers';
+import { FruitType } from '@core/models/FruitsModel';
 
 @Component({
   selector: 'app-card',
@@ -22,7 +23,7 @@ export class CardComponent implements OnInit {
 
   @Output()
   addItem = new EventEmitter<CheckoutListItem>();
-  
+
   @Output()
   removeItem = new EventEmitter<CheckoutListItem>();
 
@@ -43,16 +44,20 @@ export class CardComponent implements OnInit {
     }
   }
 
-  onAdd(){
+  onAdd() {
     this.addItem.emit({
-      name: this.name, image: this.imgName, price: +this.price
+      name: this.name,
+      image: this.imgName,
+      price: +this.price,
     });
     this.enableRemove = true;
   }
 
-  onRemove(){
+  onRemove() {
     this.removeItem.emit({
-      name: this.name, image: this.imgName, price: +this.price
+      name: this.name,
+      image: this.imgName,
+      price: +this.price,
     });
     this.enableRemove = false;
   }

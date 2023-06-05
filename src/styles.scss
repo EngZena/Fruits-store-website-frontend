@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.min.css";
-@import "./assets/scss/constants.scss";
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import './assets/scss/constants.scss';
 
 button {
   padding: 5px;
@@ -22,4 +22,29 @@ button:disabled {
 }
 input.ng-invalid.ng-touched {
   border: 1px solid $red_error_color;
+}
+body {
+  font-family: cursive;
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $green_color;
+  // scrollbar-color: $green_color $blue_color;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  // background: $blue_color;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $green_color;
+  border-radius: 20px;
+  // border: 3px solid $blue_color;
 }

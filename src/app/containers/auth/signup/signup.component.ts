@@ -1,16 +1,15 @@
+import * as AuthActions from '../../auth/store/auth.actions';
+import * as fromApp from '@store/app.reducer';
+import * as pattrens from '../pattrens';
+
 import { Component, OnInit } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+import { AuthService } from '@core/services/auth.service';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/services/auth.service';
-import * as fromApp from '../../../store/app.reducer';
-import * as AuthActions from '../../auth/store/auth.actions';
-import * as pattrens from '../pattrens';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -25,10 +24,11 @@ export class SignupComponent implements OnInit {
   private storeSub: Subscription;
   error: string = null;
 
-  constructor(private router: Router,
+  constructor(
+    private router: Router,
     private store: Store<fromApp.AppState>,
     private authService: AuthService
-    ) {}
+  ) {}
 
   ngOnInit(): void {
     this.signUpForm = new FormGroup(
@@ -47,21 +47,18 @@ export class SignupComponent implements OnInit {
             Validators.required,
             Validators.minLength(3),
           ]),
-          email: new FormControl(
-            null,
-            [Validators.required, 
-             Validators.pattern(pattrens.emailPattren),
+          email: new FormControl(null, [
+            Validators.required,
+            Validators.pattern(pattrens.emailPattren),
             this.forbiddenEmails.bind(this),
-              
-            ],
-          ),
+          ]),
           password: new FormControl(null, [
             Validators.required,
-            Validators.pattern(pattrens.passwordPattren)
+            Validators.pattern(pattrens.passwordPattren),
           ]),
           confirmPassword: new FormControl(null, [
             Validators.required,
-            Validators.pattern(pattrens.passwordPattren)
+            Validators.pattern(pattrens.passwordPattren),
           ]),
         }),
         gender: new FormControl('female'),
@@ -72,24 +69,25 @@ export class SignupComponent implements OnInit {
         validators: this.validateEqualityPasswordAndConfirmPassword.bind(this),
       }
     );
-    this.storeSub = this.store.select('auth').subscribe(
-      (authState) =>{
+    this.storeSub = this.store.select('auth').subscribe(authState => {
       this.isLoading = authState.loading;
       this.error = authState.authError;
-    })
+    });
   }
 
   validateEqualityPasswordAndConfirmPassword(formGroup: FormGroup) {
     const pass = formGroup.get('newUserData.password').value;
     const confirmpass = formGroup.get('newUserData.confirmPassword').value;
     if (pass !== confirmpass) {
-      formGroup.get('newUserData.confirmPassword').setErrors({ 'passIsNotEqualToConfirmPass': true });
+      formGroup
+        .get('newUserData.confirmPassword')
+        .setErrors({ passIsNotEqualToConfirmPass: true });
     } else {
       formGroup.get('newUserData.confirmPassword').setErrors(null);
-    };
+    }
   }
   onSubmit() {
-    if(!this.signUpForm.valid) return;
+    if (!this.signUpForm.valid) return;
     const email = this.signUpForm.get('newUserData.email').value;
     const password = this.signUpForm.get('newUserData.password').value;
     const userName = this.signUpForm.get('newUserData.username').value;
@@ -98,17 +96,27 @@ export class SignupComponent implements OnInit {
     const gender = this.signUpForm.get('gender').value;
     const secretQuestion = this.signUpForm.get('secret').value;
     const secretAnswer = this.signUpForm.get('questionAnswer').value;
-    this.authService.saveUserData(userName, firstName, lastName,email, gender, secretQuestion, secretAnswer).subscribe();
-   
+    this.authService
+      .saveUserData(
+        userName,
+        firstName,
+        lastName,
+        email,
+        gender,
+        secretQuestion,
+        secretAnswer
+      )
+      .subscribe();
+
     this.store.dispatch(
       new AuthActions.SignupStart({
         email: email,
-        password: password
+        password: password,
       })
     );
     this.signUpForm.reset();
   }
-  
+
   forbiddenNames(control: FormControl): { [s: string]: boolean } {
     if (this.forbiddenFirstName.indexOf(control.value) !== -1) {
       return { nameIsForbidden: true };
@@ -116,34 +124,31 @@ export class SignupComponent implements OnInit {
     return null;
   }
 
-  forbiddenEmails(control: FormControl){
-    this.authService.checkIfEmailExist().subscribe(
-      (responseData) => {
-        const emailsList = [];
-        emailsList.push(Object.values(responseData))
-        emailsList.map((item) => 
-          item.map((itemData) => {
-            {
-              if(itemData.email === control.value)
-              {
-                this.emailAlreadyExist = true;
-              control.setErrors({ 'EmailAlreadyExist': true });
+  forbiddenEmails(control: FormControl) {
+    this.authService.checkIfEmailExist().subscribe(responseData => {
+      const emailsList = [];
+      emailsList.push(Object.values(responseData));
+      emailsList.map(item =>
+        item.map(itemData => {
+          {
+            if (itemData.email === control.value) {
+              this.emailAlreadyExist = true;
+              control.setErrors({ EmailAlreadyExist: true });
+            } else {
+              const errorResult = pattrens.emailPattren.test(
+                String(control.value).toLowerCase()
+              );
+              this.emailAlreadyExist = false;
+              if (errorResult) {
+                control.setErrors(null);
+              } else {
+                control.setErrors({ EmailIsNotValid: true });
+              }
             }
-              else 
-              {
-                const errorResult = pattrens.emailPattren.test(String(control.value).toLowerCase());
-                this.emailAlreadyExist = false;
-                if(errorResult) {
-                  control.setErrors(null);
-                } else {
-                  control.setErrors({'EmailIsNotValid': true});
-              }
-              }
           }
-          })
-         )
-      }
-    )
+        })
+      );
+    });
   }
 
   onLogin() {

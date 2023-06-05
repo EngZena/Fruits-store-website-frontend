@@ -1,22 +1,24 @@
+import * as fromAppStore from '@store/app.reducer';
+import * as fromCheckoutActions from '@containers/checkout/store/checkout.actions';
+
+import { Injectable, OnInit } from '@angular/core';
+import { catchError, map } from 'rxjs/operators';
+
+import { CheckoutListItem } from '@containers/checkout/store/checkout.reducers';
 import { HttpClient } from '@angular/common/http';
-import { EventEmitter, Injectable, OnInit } from '@angular/core';
-import { Subject, throwError } from 'rxjs';
-import { catchError, exhaustMap, map, take, tap } from 'rxjs/operators';
-import { CheckoutListItem } from '../containers/checkout/store/checkout.reducers';
-import { baseURL } from './http-instanse';
-import * as fromCheckoutActions from '../containers/checkout/store/checkout.actions';
-import * as fromAppStore from '../store/app.reducer';
 import { Store } from '@ngrx/store';
+import { baseURL } from './http-instanse';
+
 @Injectable({
   providedIn: 'root',
 })
 export class OrdersService implements OnInit {
-
   constructor(
     private http: HttpClient,
     private store: Store<fromAppStore.AppState>
   ) {}
 
+  // eslint-disable-next-line @angular-eslint/contextual-lifecycle
   ngOnInit(): void {
     this.store.select('checkout').subscribe();
   }
@@ -24,11 +26,14 @@ export class OrdersService implements OnInit {
   getOrderts() {
     const userId = JSON.parse(localStorage.getItem('userData')).id;
     return this.http.get(`${baseURL}/orders/${userId}.json`).pipe(
-      map((responseData) => {
-        const ordersList = Object.values(responseData);
-        return ordersList;
+      map(responseData => {
+        if (responseData != null) {
+          const ordersList = Object.values(responseData);
+          return ordersList;
+        }
+        return null;
       }),
-      catchError((responseError) => {
+      catchError(responseError => {
         const ordersList = [];
         return ordersList;
       })
@@ -54,7 +59,7 @@ export class OrdersService implements OnInit {
         date: date.toDateString(),
       })
       .pipe(
-        catchError((responseError) => {
+        catchError(responseError => {
           this.store.dispatch(
             new fromCheckoutActions.CheckoutFail(responseError)
           );
