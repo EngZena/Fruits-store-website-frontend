@@ -12,6 +12,8 @@ This website for Fruits Store that created using Angular programming language wh
 - Template-forms https://angular.io/guide/forms-overview#setup-in-template-driven-forms
 - eactive-forms https://angular.io/guide/reactive-forms
 - Directives https://angular.io/api/core/Directive
+- Leaflet Map https://leafletjs.com/
+- Leaflet Draw http://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html
 
 also, the style made using bootstrap library https://getbootstrap.com/
 there are customized styles added in the global style file like
