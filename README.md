@@ -30,8 +30,6 @@ This website for Fruits Store that created using Angular programming language wh
 
 ## features
 
----
-
 - project has reusable components
 - the authorization implemented using ngrx
 - the style made using bootstrap library https://getbootstrap.com/
