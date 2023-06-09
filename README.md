@@ -15,7 +15,7 @@ This website for Fruits Store that created using Angular programming language wh
 - [Reactive-forms](https://angular.io/guide/reactive-forms)
 - [Directives](https://angular.io/api/core/Directive)
 
-### Used libraries
+## Used libraries
 
 - [bootstrap](https://getbootstrap.com/)
 - [@angular/router](https://www.npmjs.com/package/@angular/router)
@@ -26,7 +26,7 @@ This website for Fruits Store that created using Angular programming language wh
 - [Leaflet Map](https://leafletjs.com/)
 - [Leaflet Draw](http://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html)
 
-## features
+## Features
 
 - project has reusable components
 - the authorization implemented using ngrx
