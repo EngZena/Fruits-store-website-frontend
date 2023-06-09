@@ -17,8 +17,6 @@ This website for Fruits Store that created using Angular programming language wh
 
 ### Used libraries
 
----
-
 - [bootstrap](https://getbootstrap.com/)
 - [@angular/router](https://www.npmjs.com/package/@angular/router)
 - [@ngrx/store](https://www.npmjs.com/package/@ngrx/store)
