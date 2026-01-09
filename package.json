@@ -11,14 +11,14 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~12.0.3",
-    "@angular/common": "~12.0.3",
-    "@angular/compiler": "~12.0.3",
-    "@angular/core": "~12.0.3",
-    "@angular/forms": "~12.0.3",
-    "@angular/platform-browser": "~12.0.3",
-    "@angular/platform-browser-dynamic": "~12.0.3",
-    "@angular/router": "~12.0.3",
+    "@angular/animations": "~13.4.0",
+    "@angular/common": "~13.4.0",
+    "@angular/compiler": "~13.4.0",
+    "@angular/core": "~13.4.0",
+    "@angular/forms": "~13.4.0",
+    "@angular/platform-browser": "~13.4.0",
+    "@angular/platform-browser-dynamic": "~13.4.0",
+    "@angular/router": "~13.4.0",
     "@ngrx/effects": "^12.2.0",
     "@ngrx/store": "^12.1.0",
     "@ngrx/store-devtools": "^13.0.2",
@@ -33,14 +33,14 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~12.0.3",
+    "@angular-devkit/build-angular": "~13.3.11",
     "@angular-eslint/builder": "12.7.0",
     "@angular-eslint/eslint-plugin": "12.7.0",
     "@angular-eslint/eslint-plugin-template": "12.7.0",
     "@angular-eslint/schematics": "12.7.0",
     "@angular-eslint/template-parser": "12.7.0",
-    "@angular/cli": "~12.0.3",
-    "@angular/compiler-cli": "~12.0.3",
+    "@angular/cli": "~13.3.11",
+    "@angular/compiler-cli": "~13.4.0",
     "@types/jasmine": "~3.6.0",
     "@types/leaflet": "^1.7.9",
     "@types/leaflet-draw": "^1.0.5",
@@ -55,6 +55,6 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "prettier": "^2.5.1",
-    "typescript": "~4.2.3"
+    "typescript": "~4.6.4"
   }
 }
