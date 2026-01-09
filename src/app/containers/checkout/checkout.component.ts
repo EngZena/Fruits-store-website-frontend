@@ -2,7 +2,11 @@ import * as fromApp from '@store/app.reducer';
 import * as fromcheckoutActions from './store/checkout.actions';
 
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 
 import { CheckoutListItem } from './store/checkout.reducers';
 import { OrdersService } from '@core/services/orders.service';
@@ -17,7 +21,7 @@ import { phoneNumberPattren } from '../auth/pattrens';
 export class CheckoutComponent implements OnInit {
   checkoutList: CheckoutListItem[] = [];
   totalPrice: number;
-  checkoutForm: FormGroup;
+  checkoutForm: UntypedFormGroup;
   showAlert: boolean = false;
   error: string = null;
   constructor(
@@ -31,16 +35,16 @@ export class CheckoutComponent implements OnInit {
       this.totalPrice = data.total;
       this.error = data.error;
     });
-    this.checkoutForm = new FormGroup({
-      phoneNumber: new FormControl(null, [
+    this.checkoutForm = new UntypedFormGroup({
+      phoneNumber: new UntypedFormControl(null, [
         Validators.required,
         Validators.pattern(phoneNumberPattren),
       ]),
-      streetName: new FormControl(null, [
+      streetName: new UntypedFormControl(null, [
         Validators.required,
         Validators.minLength(3),
       ]),
-      notes: new FormControl(null),
+      notes: new UntypedFormControl(null),
     });
   }
 

@@ -6,7 +6,7 @@ import * as mapLayers from '@core/constants/index';
 import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
 
 import { CitiesService } from '@core/services/cities.service';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-leaflet-map',
@@ -17,7 +17,7 @@ export class LeafletMapComponent implements AfterViewInit {
   private map: L.DrawMap;
   private currentZoomLevel = 16;
   isSatelliteLayer: boolean = false;
-  searchText: FormControl = new FormControl();
+  searchText: UntypedFormControl = new UntypedFormControl();
   @Output()
   currentUserCityName = new EventEmitter<string>();
   drawnItems = new L.FeatureGroup();

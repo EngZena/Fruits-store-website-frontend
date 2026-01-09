@@ -3,7 +3,11 @@ import * as fromApp from '@store/app.reducer';
 import * as pattrens from '../pattrens';
 
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 
 import { AuthService } from '@core/services/auth.service';
 import { Router } from '@angular/router';
@@ -17,7 +21,7 @@ import { Subscription } from 'rxjs';
 })
 export class SignupComponent implements OnInit {
   gendersList: string[] = ['female', 'male'];
-  signUpForm: FormGroup;
+  signUpForm: UntypedFormGroup;
   forbiddenFirstName: string[] = ['Test', 'test'];
   emailAlreadyExist: boolean = false;
   isLoading: boolean = false;
@@ -31,39 +35,39 @@ export class SignupComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.signUpForm = new FormGroup(
+    this.signUpForm = new UntypedFormGroup(
       {
-        newUserData: new FormGroup({
-          username: new FormControl(null, [
+        newUserData: new UntypedFormGroup({
+          username: new UntypedFormControl(null, [
             Validators.required,
             Validators.minLength(3),
           ]),
-          firstName: new FormControl(null, [
+          firstName: new UntypedFormControl(null, [
             Validators.required,
             Validators.minLength(3),
             this.forbiddenNames.bind(this),
           ]),
-          lastName: new FormControl(null, [
+          lastName: new UntypedFormControl(null, [
             Validators.required,
             Validators.minLength(3),
           ]),
-          email: new FormControl(null, [
+          email: new UntypedFormControl(null, [
             Validators.required,
             Validators.pattern(pattrens.emailPattren),
             this.forbiddenEmails.bind(this),
           ]),
-          password: new FormControl(null, [
+          password: new UntypedFormControl(null, [
             Validators.required,
             Validators.pattern(pattrens.passwordPattren),
           ]),
-          confirmPassword: new FormControl(null, [
+          confirmPassword: new UntypedFormControl(null, [
             Validators.required,
             Validators.pattern(pattrens.passwordPattren),
           ]),
         }),
-        gender: new FormControl('female'),
-        secret: new FormControl(null, Validators.required),
-        questionAnswer: new FormControl(null, Validators.required),
+        gender: new UntypedFormControl('female'),
+        secret: new UntypedFormControl(null, Validators.required),
+        questionAnswer: new UntypedFormControl(null, Validators.required),
       },
       {
         validators: this.validateEqualityPasswordAndConfirmPassword.bind(this),
@@ -75,7 +79,7 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  validateEqualityPasswordAndConfirmPassword(formGroup: FormGroup) {
+  validateEqualityPasswordAndConfirmPassword(formGroup: UntypedFormGroup) {
     const pass = formGroup.get('newUserData.password').value;
     const confirmpass = formGroup.get('newUserData.confirmPassword').value;
     if (pass !== confirmpass) {
@@ -117,14 +121,14 @@ export class SignupComponent implements OnInit {
     this.signUpForm.reset();
   }
 
-  forbiddenNames(control: FormControl): { [s: string]: boolean } {
+  forbiddenNames(control: UntypedFormControl): { [s: string]: boolean } {
     if (this.forbiddenFirstName.indexOf(control.value) !== -1) {
       return { nameIsForbidden: true };
     }
     return null;
   }
 
-  forbiddenEmails(control: FormControl) {
+  forbiddenEmails(control: UntypedFormControl) {
     this.authService.checkIfEmailExist().subscribe(responseData => {
       const emailsList = [];
       emailsList.push(Object.values(responseData));

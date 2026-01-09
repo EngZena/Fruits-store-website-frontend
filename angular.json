@@ -109,9 +109,10 @@
       }
     }
   },
-  "defaultProject": "fruits-store",
   "cli": {
     "analytics": false,
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
